@@ -1,4 +1,5 @@
 import React from 'react';
+import './css/app.scss';
 
 class HelloWorld extends React.Component {
     render() {
