@@ -1,6 +1,6 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 const extractSass = new ExtractTextPlugin({
     filename: "bundle.css",
@@ -10,8 +10,9 @@ module.exports = {
     context: path.resolve(__dirname, 'src'),
     entry: './index',
     output: {
-        path: path.resolve(__dirname, 'built'),
-        filename: 'bundle.js'
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js',
+        publicPath: '/static/'
     },
     module: {
         rules: [{
@@ -40,11 +41,8 @@ module.exports = {
     },
     devtool: "eval",
     plugins: [
-        new HtmlWebpackPlugin({
-            hash: true,
-            template: './index.html'
-        }),
-        extractSass
+        extractSass,
+        new OpenBrowserPlugin({ url: 'http://localhost:3000' })
     ],
     watch: true
 };
