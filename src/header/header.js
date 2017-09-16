@@ -3,10 +3,10 @@ import Logo from '../logo/logo';
 import Search from '../search/search';
 import './header.scss';
 
-const Header = () => (
+const Header = (props) => (
     <div className="header">
         <Logo></Logo>
-        <Search></Search>
+        <Search filterMovies={props.filterMovies}></Search>
     </div>
 )
 

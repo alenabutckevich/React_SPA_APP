@@ -1,8 +1,8 @@
 import React from 'react';
-import SearchHeader from './search__header/search__header';
-import SearchInput from './search__input/search__input';
-import SearchButton from './search__button/search__button';
-import Filter from './filter/filter';
+import SearchHeader from './__header/search__header';
+import SearchInput from './__input/search__input';
+import SearchButton from './__button/search__button';
+import SearchFilter from './search-filter/search-filter';
 import './search.scss';
 
 class Search extends React.Component {
@@ -14,26 +14,25 @@ class Search extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleEnterKeyPress = this.handleEnterKeyPress.bind(this);
-        this.handleClick = this.handleClick.bind(this);
+        this.changeSearchFilter = this.changeSearchFilter.bind(this);
     }
 
     handleChange(event) {
         this.setState({ value: event.target.value });
     }
 
-    handleSubmit(event) {
-        console.log(this.state.value);
+    handleSubmit() {
+        this.props.filterMovies(this.state.filter, this.state.value.toLowerCase());
     }
 
     handleEnterKeyPress(event) {
         if (event.keyCode == 13) {
-            console.log(this.state.value);
+            this.props.filterMovies(this.state.filter, this.state.value.toLowerCase());
         }
     }
 
-    handleClick(filter) {
+    changeSearchFilter(filter) {
         this.setState({ filter: filter });
-        console.log(this.state.filter);
     }
 
     render() {
@@ -43,8 +42,8 @@ class Search extends React.Component {
                 <SearchInput value={this.state.value} handleChange={this.handleChange}
                     handleEnterKeyPress={this.handleEnterKeyPress}></SearchInput>
                 <div>
-                    <Filter filters={this.filters} handleClick={this.handleClick} 
-                        currentFilter={this.state.filter}></Filter>
+                    <SearchFilter filters={this.filters} changeSearchFilter={this.changeSearchFilter} 
+                        currentFilter={this.state.filter}></SearchFilter>
                     <SearchButton handleSubmit={this.handleSubmit}></SearchButton>
                 </div>
             </div>
