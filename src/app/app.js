@@ -1,13 +1,13 @@
 import React from 'react';
 import Footer from '../footer/footer';
-import Main from '../main/main';
+import MovieList from '../movie-list/movie-list';
 import Header from '../header/header';
 import './app.scss';
 
 const App = () => (
     <div className="app">
         <Header></Header>
-        <Main></Main>
+        <MovieList></MovieList>
         <Footer></Footer>
     </div>
 )
