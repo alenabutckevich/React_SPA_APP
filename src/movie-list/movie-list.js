@@ -1,5 +1,5 @@
 import React from 'react';
-import Movie from '../movie/movie';
+import Movie from './movie/movie';
 import data from '../data.json';
 import './movie-list.scss';
 import './movie-list_empty.scss';
