@@ -3,7 +3,7 @@ import './movie__name.scss';
 
 const MovieName = (props) => (
     <div className="movie__name">
-        {props.name}
+        {props.title}
     </div>
 )
 
