@@ -4,7 +4,7 @@ import './movie-list.scss';
 import './movie-list_empty.scss';
 
 const MovieList = (props) => {
-    let movies = props.movies.sort(props.sort);
+    let movies = props.sort ? props.movies.sort(props.sort) : props.movies;
     let isEmptyList = movies.length === 0;
 
     return (

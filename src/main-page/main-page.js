@@ -26,7 +26,6 @@ class MainPage extends React.PureComponent {
     }
 
     sortMovies(filter) {
-        debugger;
         let sort = filter === "release date" ? this.sortByYear : this.sortByRating;
         
         this.setState({ sort: sort });
