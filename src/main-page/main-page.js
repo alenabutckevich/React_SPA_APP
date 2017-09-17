@@ -32,7 +32,7 @@ class MainPage extends React.PureComponent {
     }
 
     sortByYear(val1, val2) {
-        return val2["release date"] - val1["release date"];
+        return val2.releaseDate - val1.releaseDate;
     }
 
     sortByRating(val1, val2) {

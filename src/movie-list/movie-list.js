@@ -15,7 +15,7 @@ const MovieList = (props) => {
                         
                         {
                             movies.map((movie) => <Movie title={movie.title}
-                                image={movie.image} genre={movie.genre} year={movie["release date"]}
+                                image={movie.image} genre={movie.genre} year={movie.releaseDate}
                                 key={movie.id}></Movie>)
                         }
                     </div>

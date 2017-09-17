@@ -9,7 +9,7 @@
         "genre": "Drama",
         "description": "With his wife's disappearance having become the focus of an intense media circus, a man sees the spotlight turned on him when it's suspected that he may not be innocent.",
         "rating": 8.1,
-        "release date": 2014
+        "releaseDate": 2014
     },
     {
         "id": "2",
@@ -21,7 +21,7 @@
         "genre": "Drama",
         "description": "Harvard student Mark Zuckerberg creates the social networking site that would become known as Facebook, but is later sued by two brothers who claimed he stole their idea, and the co-founder who was later squeezed out of the business.",
         "rating": 7.7,
-        "release date": 2010
+        "releaseDate": 2010
     },
     {
         "id": "3",
@@ -33,7 +33,7 @@
         "genre": "Thriller",
         "description": "Leah Altman (Emma Meyer, A Lethal History) has just moved into her new house, and finds herself fleeing for her life, and hiding in the panic room, when three burglars break into her house to steal a fortune left behind, but it's in the panic room she's hiding in.",
         "rating": 6.8,
-        "release date": 2002
+        "releaseDate": 2002
     },
     {
         "id": "4",
@@ -45,7 +45,7 @@
         "genre": "Thriller",
         "description": "Two detectives, a rookie and a veteran, hunt a serial killer who uses the seven deadly sins as his motives.",
         "rating": 8.6,
-        "release date": 1995
+        "releaseDate": 1995
     },
     {
         "id": "5",
@@ -57,7 +57,7 @@
         "genre": "Drama",
         "description": "An insomniac office worker, looking for a way to change his life, crosses paths with a devil-may-care soap maker, forming an underground fight club that evolves into something much, much more.",
         "rating": 8.8,
-        "release date": 1999
+        "releaseDate": 1999
     },
     {
         "id": "6",
@@ -69,7 +69,7 @@
         "genre": "Drama",
         "description": "In the late 1960s/early 1970s, a San Francisco cartoonist becomes an amateur detective obsessed with tracking down the Zodiac Killer, an unidentified individual who terrorizes Northern California with a killing spree.",
         "rating": 7.7,
-        "release date": 2007
+        "releaseDate": 2007
     },
     {
         "id": "7",
@@ -81,7 +81,7 @@
         "genre": "Drama",
         "description": "After a wealthy banker is given an opportunity to participate in a mysterious game, his life is turned upside down when he becomes unable to distinguish between the game and reality.",
         "rating": 7.8,
-        "release date": 1997
+        "releaseDate": 1997
     },
     {
         "id": "8",
@@ -93,6 +93,6 @@
         "genre": "Adventure",
         "description": "The adventures of an orphaned boy named Pete and his best friend Elliot, who just so happens to be a dragon.",
         "rating": 6.7,
-        "release date": 2016
+        "releaseDate": 2016
     }
 ]

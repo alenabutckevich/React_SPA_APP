@@ -23,7 +23,7 @@ const MovieDetails = (props) => {
             <MovieDetailsName title={props.movie.title}></MovieDetailsName>
             <MovieDetailsRating rating={props.movie.rating}></MovieDetailsRating>
             <MovieDetailsGenre genre={props.movie.genre}></MovieDetailsGenre>
-            <MovieDetailsYear year={props.movie["release date"]}></MovieDetailsYear>
+            <MovieDetailsYear year={props.movie.releaseDate}></MovieDetailsYear>
             <MovieDetailsDuration duration={props.movie.duration}></MovieDetailsDuration>
             <MovieDetailsDescription description={props.movie.description}></MovieDetailsDescription>
             <MovieDetailsDirector director={props.movie.director}></MovieDetailsDirector>
