@@ -1,15 +1,15 @@
 import React from 'react';
-import ResultsFilterHeader from './__header/results-filter__header';
-import ResultFilterLink from './__link/results-filter__link';
 import './results-filter.scss';
 
 const ResultsFilter = (props) => (
     <div className="results-filter">
-        <ResultsFilterHeader></ResultsFilterHeader>
-        <div style={{float: "left"}}>
+        <div className="results-filter__header">Sort by</div>
+        <div style={{ float: "left" }}>
             {props.filters.map((filter) =>
-                <ResultFilterLink name={filter.name} currentFilter={props.currentFilter}
-                changeSortFilter={props.changeSortFilter} key={filter.id}></ResultFilterLink>
+                <a href="" className={"results-filter__link " + (props.currentFilter === filter.name ?
+                    "results-filter__link_active" : "")} onClick={props.changeSortFilter} key={filter.id}>
+                    {filter.name === "releaseDate" ? "release date" : filter.name}
+                </a>
             )}
         </div>
     </div>

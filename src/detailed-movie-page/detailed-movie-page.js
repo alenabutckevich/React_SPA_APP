@@ -2,7 +2,6 @@ import React from 'react';
 import MovieDetails from '../movie-details/movie-details';
 import MovieList from '../movie-list/movie-list';
 import Footer from '../footer/footer';
-import DirectorPanel from '../director-panel/director-panel';
 import data from '../data.json';
 import './detailed-movie-page.scss';
 
@@ -23,7 +22,7 @@ class DetailedMoviePage extends React.PureComponent {
         return (
             <div className="detailed-movie-page">
                 <MovieDetails movie={this.state.movie}></MovieDetails>
-                <DirectorPanel director={this.state.movie.director}></DirectorPanel>
+                <div className="director-panel">Films by {this.state.movie.director}</div>
                 <MovieList movies={this.state.movies}></MovieList>
                 <Footer></Footer>
             </div>

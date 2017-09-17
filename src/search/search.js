@@ -1,7 +1,4 @@
 import React from 'react';
-import SearchHeader from './__header/search__header';
-import SearchInput from './__input/search__input';
-import SearchButton from './__button/search__button';
 import SearchFilter from './search-filter/search-filter';
 import './search.scss';
 
@@ -38,13 +35,13 @@ class Search extends React.Component {
     render() {
         return (
             <div className="search">
-                <SearchHeader></SearchHeader>
-                <SearchInput value={this.state.value} handleChange={this.handleChange}
-                    handleEnterKeyPress={this.handleEnterKeyPress}></SearchInput>
+                <h2 className="search__header">find your movie</h2>
+                <input className="search__input" value={this.state.value} onChange={this.handleChange}
+                    onKeyDown={this.handleEnterKeyPress} placeholder="Type the text..."/>
                 <div>
                     <SearchFilter filters={this.filters} changeSearchFilter={this.changeSearchFilter} 
                         currentFilter={this.state.filter}></SearchFilter>
-                    <SearchButton handleSubmit={this.handleSubmit}></SearchButton>
+                    <button className="search__button" onClick={this.handleSubmit}>search</button>
                 </div>
             </div>
         )

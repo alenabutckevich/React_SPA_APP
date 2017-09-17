@@ -1,15 +1,15 @@
 import React from 'react';
-import FilterHeader from './__header/search-filter__header';
-import FilterButton from './__button/search-filter__button';
 import './search-filter.scss';
 
 const SearchFilter = (props) => (
     <div className="search-filter">
-        <FilterHeader></FilterHeader>
+        <div className="search-filter__header">search by</div>
         <div style={{float: "left"}}>
             {props.filters.map((filter) =>
-                <FilterButton name={filter.name} currentFilter={props.currentFilter}
-                    changeSearchFilter={props.changeSearchFilter} key={filter.id}></FilterButton>
+                <button className={"search-filter__button " + (props.currentFilter === filter.name ? "search-filter__button_active" : "")} 
+                    onClick={props.changeSearchFilter.bind(this, filter.name)} key={filter.id}>
+                    {filter.name}
+                </button>
             )}
         </div>
     </div>

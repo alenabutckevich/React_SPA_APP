@@ -1,15 +1,5 @@
 import React from 'react';
 import Logo from '../logo/logo';
-import MovieDetailsImage from './__image/movie-details__image';
-import MovieDetailsName from './__name/movie-details__name';
-import MovieDetailsYear from './__year/movie-details__year';
-import MovieDetailsGenre from './__genre/movie-details__genre';
-import MovieDetailsDuration from './__duration/movie-details__duration';
-import MovieDetailsDescription from './__description/movie-details__description';
-import MovieDetailsDirector from './__director/movie-details__director';
-import MovieDetailsCast from './__cast/movie-details__cast';
-import MovieDetailsRating from './__rating/movie-details__rating';
-import SearchButton from '../search-button/search-button';
 import './movie-details.scss';
 
 const MovieDetails = (props) => {
@@ -17,17 +7,17 @@ const MovieDetails = (props) => {
         <div className="movie-details">
             <div style={{ marginLeft: "3%" }}>
                 <Logo></Logo>
-                <SearchButton></SearchButton>
+                <button className="search-button">search</button>
             </div>
-            <MovieDetailsImage image={props.movie.image}></MovieDetailsImage>
-            <MovieDetailsName title={props.movie.title}></MovieDetailsName>
-            <MovieDetailsRating rating={props.movie.rating}></MovieDetailsRating>
-            <MovieDetailsGenre genre={props.movie.genre}></MovieDetailsGenre>
-            <MovieDetailsYear year={props.movie.releaseDate}></MovieDetailsYear>
-            <MovieDetailsDuration duration={props.movie.duration}></MovieDetailsDuration>
-            <MovieDetailsDescription description={props.movie.description}></MovieDetailsDescription>
-            <MovieDetailsDirector director={props.movie.director}></MovieDetailsDirector>
-            <MovieDetailsCast cast={props.movie.cast}></MovieDetailsCast>
+            <img className="movie-details__image" src={props.movie.image}/>
+            <h2 className="movie-details__title">{props.movie.title}</h2>
+            <button className="movie-details__rating" disabled>{props.movie.rating}</button>
+            <div className="movie-details__genre">{props.movie.genre}</div>
+            <div className="movie-details__release-date">{props.movie.releaseDate}</div>
+            <div className="movie-details__duration">{props.movie.duration}</div>
+            <h2 className="movie-details__description">{props.movie.description}</h2>
+            <div className="movie-details__director">Director: {props.movie.director}</div>
+            <div className="movie-details__cast">Cast: {props.movie.cast}</div>
         </div>
     )
 }

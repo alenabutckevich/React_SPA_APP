@@ -1,5 +1,4 @@
 import React from 'react';
-import MoviesCount from './__movies-count/results-panel__movies-count';
 import ResultsFilter from './results-filter/results-filter';
 import './results-panel.scss';
 
@@ -26,7 +25,8 @@ class ResultsPanel extends React.Component {
             <div className="results-panel">
                 <div>
                     {
-                        isEmptyList ? <MoviesCount count={this.props.movies.length}></MoviesCount> : null
+                        isEmptyList ? <div className="results-panel__movies-count">
+                            {this.props.movies.length} movies found</div> : null
                     }
                 </div>
                 <div>
