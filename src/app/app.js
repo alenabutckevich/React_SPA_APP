@@ -1,6 +1,6 @@
 import React from 'react';
 import DetailedMoviePage from '../detailed-movie-page/detailed-movie-page';
-import './app.scss';
+import '../styles/index.scss';
 
 const App = () => (
     <div className="app">
