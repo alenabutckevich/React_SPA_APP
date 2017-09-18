@@ -1,0 +1,14 @@
+.results-panel {
+    background-color: #E6E6FA; 
+    flex: 0 0 auto;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 10%;
+    width: 90%;
+}
+
+.results-panel__movies-count {
+    color: #000000;
+    float: left;
+    font-weight: bold;
+}

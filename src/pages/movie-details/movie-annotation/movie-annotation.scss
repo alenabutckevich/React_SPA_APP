@@ -1,0 +1,76 @@
+.movie-annotation {
+    margin-top: 50px;
+    padding-left: 5%;
+    width: 90%;
+}
+
+.movie-annotation__description {
+    color: #A9A9A9;
+    font-size: medium;
+    height: 110px;
+    width: 95%;
+}
+
+.movie-annotation__director {
+    color: #A9A9A9;
+    font-size: small;
+    margin-bottom: 10px;
+}
+
+.movie-annotation__duration {
+    color: #FFFFFF;
+    font-size: small;
+    font-weight: bold;
+}
+
+.movie-annotation__cast {
+    color: #A9A9A9;
+    font-size: small;
+    margin-bottom: 10px;
+    width: 95%;
+}
+
+.movie-annotation__genre {
+    color: #A9A9A9;
+    font-size: medium;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.movie-annotation__image {
+    float: left;
+    height: 320px;
+    margin-right: 3%;
+    width: 230px;
+}
+
+.movie-annotation__title {
+    color: #FE2E64;
+    float: left;
+    margin-bottom: 5px !important;
+}
+
+.movie-annotation__rating {
+    background-color: transparent;
+    border: 2px solid #008000;
+    border-radius: 20px;
+    color: #008000;
+    font-size: medium;
+    font-weight: bold;
+    height: 40px; 
+    margin-top: 15px;
+    margin-left: 10px;
+    text-align: center;
+    outline: none;
+    width: 40px; 
+}
+
+.movie-annotation__release-date {
+    color: #FFFFFF;
+    float: left;
+    font-size: small;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+
