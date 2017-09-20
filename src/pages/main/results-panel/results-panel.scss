@@ -5,10 +5,10 @@
     line-height: 50px;
     padding-left: 10%;
     width: 90%;
-}
 
-.results-panel__movies-count {
-    color: #000000;
-    float: left;
-    font-weight: bold;
+    &__movies-count {
+        color: #000000;
+        float: left;
+        font-weight: bold;
+    }
 }

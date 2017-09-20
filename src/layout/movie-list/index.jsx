@@ -1,7 +1,6 @@
 import React from 'react';
 import Movie from './movie';
 import './movie-list.scss';
-import './movie-list_empty.scss';
 import data from '../../data.json';
 
 const MovieList = () => {

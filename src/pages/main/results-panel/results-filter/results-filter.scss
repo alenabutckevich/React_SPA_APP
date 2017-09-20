@@ -1,24 +1,24 @@
 .results-filter {
     float: right;
     margin-right: 11%;
-}
 
-.results-filter__header {
-    color: #000000;
-    float: left;
-    font-weight: bold;
-    padding-right: 10px; 
-}
-
-.results-filter__link {
-    color: #000000;
-    font-weight: bold;
-    padding-right: 10px;
-    text-decoration: none;
-} :visited, :active {
-    color: #000000;
-}
-
-.results-filter__link_active {
-    color: #FE2E64 !important;
+    &__header {
+        color: #000000;
+        float: left;
+        font-weight: bold;
+        padding-right: 10px; 
+    }
+    
+    &__link {
+        color: #000000;
+        font-weight: bold;
+        padding-right: 10px;
+        text-decoration: none;
+    } :visited, :active {
+        color: #000000;
+    }
+    
+    &__link_active {
+        color: #FE2E64 !important;
+    }    
 }
