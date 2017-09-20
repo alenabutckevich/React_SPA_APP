@@ -2,7 +2,7 @@
   "name": "react_spa_app",
   "version": "1.0.0",
   "description": "a single page application to search the Netflix Roulette database",
-  "main": "index.js",
+  "main": "index.jsx",
   "dependencies": {
     "jest": "^21.0.1",
     "react": "^15.6.1",
