@@ -8,7 +8,7 @@ var compiler = webpack(config);
 
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))
 
-app.get("/", function(req, res) {
+app.get(/.*/, function(req, res) {
   res.sendFile(__dirname + '/src/index.html');
 });
 

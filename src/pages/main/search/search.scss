@@ -25,16 +25,17 @@
         outline-offset: 0;
     }
     
-    &__button {
+    &__link {
         background-color: #FE2E64;
         border: none;
         color: white;
         float: right;
         font-size: medium;
         font-weight: bold;
-        height: 30px;
+        padding: 10px 60px;
+        text-align: center;
+        text-decoration: none;
         text-transform: uppercase;
-        width: 180px;
     } :active, :hover, :focus {
         outline: 0;
         outline-offset: 0;
