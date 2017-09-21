@@ -33,7 +33,14 @@ module.exports = {
                     loader: "sass-loader"
                 }],
                 fallback: "style-loader"
-            })          
+            })
+        },
+        {
+            test: /\.(jpg|png)$/,
+            use: [{ 
+                loader: 'url-loader', 
+                options: { limit: 8192 } 
+            }]
         }]
     },
     resolve: {

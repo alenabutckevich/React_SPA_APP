@@ -1,0 +1,29 @@
+.director-panel {
+    background-color: #E6E6FA; 
+    color: #000000;
+    flex: 0 0 auto;
+    font-weight: bold;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 7%;
+    padding-right: 10%;
+    width: 83%;
+}
+
+.search-button {
+    background-color: #FFFFFF;
+    border: none;
+    color: #FE2E64;
+    float: right;
+    font-size: medium;
+    font-weight: bold;
+    height: 30px;
+    right: 10%;
+    position: absolute;
+    text-transform: uppercase;
+    top: 18px;
+    width: 150px;
+} :active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+}

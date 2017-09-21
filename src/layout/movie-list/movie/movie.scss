@@ -1,0 +1,37 @@
+.movie {
+    float: left;
+    height: 400px;
+    padding-left: 4%;
+    width: 250px;
+
+    &__genre {
+        color: #A9A9A9;
+        font-size: small;
+        height: 18px;  
+        width: 250px;
+    }
+    
+    &__image {
+        height: 340px;
+        width: 250px;
+    }
+    
+    &__title {
+        color: #000000;
+        float: left;
+        font-size: 15px;
+        font-weight: bold;
+        height: 18px;
+        overflow: hidden;
+        text-transform: uppercase;
+        width: 180px;
+    }
+    
+    &__release-date {
+        float: right;
+        font-size: small;
+        height: 12px;
+        text-align: center;
+        width: 50px;
+    }
+}
