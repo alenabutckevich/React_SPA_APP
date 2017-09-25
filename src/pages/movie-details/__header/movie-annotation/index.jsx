@@ -1,6 +1,6 @@
 import React from 'react';
 import './movie-annotation.scss';
-import data from '../../../data.json';
+import data from '../../../../data.json';
 
 const MovieAnnotation = () => {
     let movie = data[0];
