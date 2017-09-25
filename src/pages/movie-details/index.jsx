@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Layout from '../../layout';
 import MovieAnnotation from './movie-annotation';
 import data from '../../data.json';
@@ -9,11 +9,13 @@ const MovieDetails = ({history}) => {
     let movie = data[0];
     return (
         <div>
-            <Layout headerContent={<div><button className="search-button" onClick={history.goBack}>
-                search</button><MovieAnnotation></MovieAnnotation></div>}
-                panel={<div className="director-panel">Films by {movie.director}</div>}></Layout>
+            <Layout headerContent={<div>
+                <Link to="/" className="search-link">search</Link>
+                <MovieAnnotation></MovieAnnotation></div>}
+                panel={<div className="director-panel">Films by {movie.director}</div>}>
+            </Layout>
         </div>
     )
 }
 
-export default withRouter(MovieDetails);
+export default MovieDetails;
