@@ -4,7 +4,6 @@ import Search from './search';
 import ResultsPanel from './results-panel';
 
 const Main = ({match}) => {
-    console.log(match.params.query);
     const search = <Search></Search>;
     const resultsPanel = <ResultsPanel></ResultsPanel>;
 
