@@ -10,9 +10,7 @@ const MovieDetails = () => {
     const panelContent = <span className="director-panel">Films by {movie.director}</span>;
 
     return (
-        <div>
-            <Layout headerContent={<MovieDetailsHeader/>} panel={panelContent}></Layout>
-        </div>
+        <Layout headerContent={<MovieDetailsHeader/>} panel={panelContent}/>
     )
 }
 
