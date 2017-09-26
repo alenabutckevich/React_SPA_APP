@@ -4,8 +4,8 @@ import './results-panel.scss';
 import data from '../../../data.json';
 
 const ResultsPanel = () => {
-    let movies = data;
-    let filters = [{id: 1, name: "release date"}, {id: 2, name: "rating"}];
+    let movies = data.movies;
+    let filters = data.filters;
     let isEmptyList = movies.length !== 0;
     return (
         <div className="results-panel">
@@ -17,8 +17,8 @@ const ResultsPanel = () => {
             </div>
             <div>
                 {
-                    isEmptyList ? <ResultsFilter currentFilter={filters[0].name} filters={filters}>
-                        </ResultsFilter> : null
+                    isEmptyList ? <ResultsFilter currentFilter={filters[0].name} filters={filters}/> 
+                        : null
                 }
             </div>
         </div>

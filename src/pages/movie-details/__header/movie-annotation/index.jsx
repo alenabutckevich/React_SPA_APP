@@ -3,7 +3,7 @@ import './movie-annotation.scss';
 import data from '../../../../data.json';
 
 const MovieAnnotation = () => {
-    let movie = data[0];
+    let movie = data.movies[0];
     return (
         <div className="movie-annotation">
             <img className="movie-annotation__image" src={movie.image}/>

@@ -4,7 +4,7 @@ import './movie-list.scss';
 import data from '../../data.json';
 
 const MovieList = () => {
-    let movies = data;
+    let movies = data.movies;
     let isEmptyList = movies.length === 0;
 
     return (
@@ -16,7 +16,7 @@ const MovieList = () => {
                         {
                             movies.map((movie) => <Movie title={movie.title}
                                 image={movie.image} genre={movie.genre} releaseDate={movie.releaseDate}
-                                key={movie.id}></Movie>)
+                                key={movie.id}/>)
                         }
                     </div>
             }

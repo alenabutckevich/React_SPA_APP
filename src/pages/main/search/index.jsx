@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import SearchFilter from './search-filter/search-filter';
+import data from '../../../data.json';
 import './search.scss';
 
 class Search extends React.Component {
 
     constructor(props) {
         super(props);
-        this.filters = [{id: 1, name: "title"}, {id: 2, name: "director"}];
+        this.filters = data.filters;
 
         this.handleClick = this.handleClick.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
