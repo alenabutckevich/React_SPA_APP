@@ -11,8 +11,8 @@ const ResultsPanel = () => {
         <div className="results-panel">
             <div>
                 {
-                    isEmptyList ? <div className="results-panel__movies-count">
-                        {movies.length} movies found</div> : null
+                    isEmptyList ? <span className="results-panel__movies-count">
+                        {movies.length} movies found</span> : null
                 }
             </div>
             <div>

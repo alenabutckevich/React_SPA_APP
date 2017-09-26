@@ -3,7 +3,7 @@ import './results-filter.scss';
 
 const ResultsFilter = ({filters, currentFilter}) => (
     <div className="results-filter">
-        <div className="results-filter__header">Sort by</div>
+        <span className="results-filter__header">Sort by</span>
         <div style={{ float: "left" }}>
             {filters.map((filter) =>
                 <a href="" className={"results-filter__link " + (currentFilter === filter.name ?

@@ -5,9 +5,9 @@ import './movie.scss';
 const Movie = ({image, title, releaseDate, genre}) => (
     <div className="movie">
         <Link to={`/film/${title}`}><img className="movie__image" src={image}/></Link>
-        <div className="movie__title">{title}</div>
+        <span className="movie__title">{title}</span>
         <input className="movie__release-date" value={releaseDate} readOnly/>
-        <div className="movie__genre">{genre}</div>
+        <span className="movie__genre">{genre}</span>
     </div>
 )
 

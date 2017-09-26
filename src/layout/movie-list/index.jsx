@@ -10,7 +10,7 @@ const MovieList = () => {
     return (
         <div className={"movie-list " + (isEmptyList ? "movie-list_empty" : "")}>
             {
-                isEmptyList ? <div>No films found</div> :
+                isEmptyList ? <span>No films found</span> :
                     <div>
                         
                         {

@@ -7,12 +7,11 @@ import './movie-details.scss';
 
 const MovieDetails = () => {
     let movie = data.movies[0];
-    const movieDetailsHeader = <MovieDetailsHeader></MovieDetailsHeader>;
-    const panel = <div className="director-panel">Films by {movie.director}</div>;
+    const panelContent = <span className="director-panel">Films by {movie.director}</span>;
 
     return (
         <div>
-            <Layout headerContent={movieDetailsHeader} panel={panel}></Layout>
+            <Layout headerContent={<MovieDetailsHeader/>} panel={panelContent}></Layout>
         </div>
     )
 }

@@ -4,12 +4,10 @@ import Search from './search';
 import ResultsPanel from './results-panel';
 
 const Main = ({match}) => {
-    const search = <Search></Search>;
-    const resultsPanel = <ResultsPanel></ResultsPanel>;
 
     return (
         <div>
-            <Layout headerContent={search} panel={resultsPanel}></Layout>
+            <Layout headerContent={<Search/>} panel={<ResultsPanel/>}></Layout>
         </div>
     )
 }
