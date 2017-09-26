@@ -24,7 +24,7 @@ class Search extends React.Component {
                 <input className="search__input" value={this.state.value} onChange={this.handleChange}
                     placeholder="Type the text..." />
                 <div>
-                    <SearchFilter filters={this.filters} currentFilter={this.filters[1].name}></SearchFilter>
+                    <SearchFilter filters={this.filters} currentFilter={this.filters[1].name}/>
                     <Link to={this.state.value === "" ? "/" : `/search/${this.state.value}`}
                         className="search__link">search</Link>
                 </div>
