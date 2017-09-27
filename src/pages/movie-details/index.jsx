@@ -6,8 +6,7 @@ import data from '../../data.json';
 import './movie-details.scss';
 
 const MovieDetails = () => {
-    let movie = data.movies[0];
-    const panelContent = <span className="director-panel">Films by {movie.director}</span>;
+    const panelContent = <span className="director-panel">Films by {data.movies[0].director}</span>;
 
     return (
         <Layout headerContent={<MovieDetailsHeader/>} panel={panelContent}/>
