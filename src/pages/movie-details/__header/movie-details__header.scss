@@ -1,0 +1,18 @@
+.search-link {
+    background-color: #FFFFFF;
+    border: none;
+    color: #FE2E64;
+    float: right;
+    font-size: medium;
+    font-weight: bold;
+    right: 10%;
+    padding: 10px 40px;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    top: 18px;
+} :active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+}

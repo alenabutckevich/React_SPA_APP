@@ -3,27 +3,18 @@ import ResultsFilter from './results-filter';
 import './results-panel.scss';
 import data from '../../../data.json';
 
-const ResultsPanel = () => {
-    let movies = data;
-    let filters = [{id: 1, name: "release date"}, {id: 2, name: "rating"}];
-    let isEmptyList = movies.length !== 0;
-    return (
-        <div className="results-panel">
-            <div>
-                {
-                    isEmptyList ? <div className="results-panel__movies-count">
-                        {movies.length} movies found</div> : null
-                }
-            </div>
-            <div>
-                {
-                    isEmptyList ? <ResultsFilter currentFilter={filters[0].name} filters={filters}>
-                        </ResultsFilter> : null
-                }
-            </div>
-        </div>
-    )
-}
+const ResultsPanel = () => (
+    <div className="results-panel">
+        {
+            data.movies.length && (
+                <div>
+                    <span className="results-panel__movies-count">{data.movies.length} movies found</span>
+                    <ResultsFilter currentFilter={data.filters[0].name} filters={data.filters} />
+                </div>
+            )
+        }
+    </div>
+)
 
 export default ResultsPanel;
 

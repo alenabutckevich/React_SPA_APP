@@ -3,7 +3,7 @@ import './search-filter.scss';
 
 const SearchFilter = ({filters, currentFilter}) => (
     <div className="search-filter">
-        <div className="search-filter__header">search by</div>
+        <span className="search-filter__header">search by</span>
         <div style={{float: "left"}}>
             {filters.map((filter) =>
                 <button className={"search-filter__button " + (currentFilter === filter.name ? 

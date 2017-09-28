@@ -3,10 +3,7 @@ import Layout from '../../layout';
 import Search from './search';
 import ResultsPanel from './results-panel';
 
-const Main = () => (
-    <div>
-        <Layout headerContent={<Search></Search>} panel={<ResultsPanel></ResultsPanel>}></Layout>
-    </div>
-)
+const Main = () => 
+    <Layout headerContent={<Search />} panel={<ResultsPanel />}/>
 
 export default Main;
