@@ -6,15 +6,14 @@ import data from '../../data.json';
 const MovieList = () => (
     <div className={"movie-list " + (!data.movies.length ? "movie-list_empty" : "")}>
         {
-            data.movies.length
-                ? <div>
-                    {
-                        data.movies.map((movie) =>
-                            <Movie title={movie.title} image={movie.image} genre={movie.genre}
-                                releaseDate={movie.releaseDate} key={movie.id} />)
-                    }
-                  </div>
-                : <span>No films found</span>
+            data.movies.length &&
+            <div>
+                {
+                    data.movies.map((movie) =>
+                        <Movie title={movie.title} image={movie.image} genre={movie.genre}
+                            releaseDate={movie.releaseDate} key={movie.id} />)
+                }
+            </div>
         }
     </div>
 )
