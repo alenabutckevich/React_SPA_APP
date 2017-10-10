@@ -19,7 +19,7 @@ module.exports = {
             test: /\.jsx?$/,
             loader: 'babel-loader',
             options: {
-                plugins: ["transform-react-jsx"],
+                plugins: ["transform-react-jsx", "transform-object-rest-spread"],
                 presets: ['env']
             },
             exclude: /node_modules/
