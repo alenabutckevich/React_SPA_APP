@@ -4,14 +4,17 @@
   "description": "a single page application to search the Netflix Roulette database",
   "main": "index.jsx",
   "dependencies": {
+    "axios": "^0.16.2",
     "jest": "^21.0.1",
+    "prop-types": "^15.6.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
-    "redux-form": "^7.0.4"
+    "redux-form": "^7.0.4",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
