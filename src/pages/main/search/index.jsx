@@ -1,44 +1,38 @@
-import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import SearchFilter from './search-filter/search-filter';
-import data from '../../../data.json';
-import './search.scss';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
+import Search from './search';
+import * as movieActions from '../../../actions/movie';
+import * as filterActions from '../../../actions/filter';
 
-class Search extends React.Component {
+const SearchContainer = ({ filters, currentFilter, filterActions, movieActions }) =>
+    <Search filters={filters} currentFilter={currentFilter} changeFilter={filterActions.setSearchFilter} 
+        setSearchQuery={movieActions.setSearchQuery} />
 
-    constructor(props) {
-        super(props);
-        this.filters = data.filters;
-
-        this.handleClick = this.handleClick.bind(this);
-        this.handleKeyPress = this.handleKeyPress.bind(this);
-    }
-
-    handleClick() {
-        const value = this.refs.searchInput.value;
-        const link = value === "" ? "/" : `/search/${value}`;
-        this.props.history.push(link);
-    }
-
-    handleKeyPress(e) {
-        if (e.key === 'Enter') {
-            this.handleClick();
-        }
-    }
-    
-    render() {
-        return (
-            <div className="search">
-                <h2 className="search__header">find your movie</h2>
-                <input className="search__input" ref="searchInput" onKeyPress={this.handleKeyPress}
-                    placeholder="Type the text..." />
-                <div>
-                    <SearchFilter filters={this.filters} currentFilter={this.filters[1].name}/>
-                    <button onClick={this.handleClick} className="search__button">search</button>
-                </div>
-            </div>
-        )
+function mapStateToProps(state) {
+    return {
+        filters: state.filter.searchFilters,
+        currentFilter: state.filter.searchFilter
     }
 }
 
-export default withRouter(Search);
+function mapDispatchToProps(dispatch) {
+    return {
+        movieActions: bindActionCreators(movieActions, dispatch),
+        filterActions: bindActionCreators(filterActions, dispatch)
+    }
+}
+
+Search.PropTypes = {
+    filters: PropTypes.array,
+    currentFilter: PropTypes.string,
+    movieActions: PropTypes.object,
+    filterActions: PropTypes.object
+}
+
+Search.defaultProps = {
+    currentFilter: "title"
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchContainer);

@@ -1,21 +1,40 @@
-import React from 'react';
-import ResultsFilter from './results-filter';
-import './results-panel.scss';
-import data from '../../../data.json';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
+import ResultsPanel from './results-panel';
+import * as actions from '../../../actions/filter';
 
-const ResultsPanel = () => (
-    <div className="results-panel">
-        {
-            data.movies.length && (
-                <div>
-                    <span className="results-panel__movies-count">{data.movies.length} movies found</span>
-                    <ResultsFilter currentFilter={data.filters[0].name} filters={data.filters} />
-                </div>
-            )
-        }
-    </div>
-)
+const ResultsPanelContainer = ({movies, filters, currentFilter, actions}) => 
+    <ResultsPanel movies={movies} filters={filters} currentFilter={currentFilter} 
+        setSortFilter={actions.setSortFilter} />
 
-export default ResultsPanel;
+function mapStateToProps(state) {
+    return {
+        movies: state.movie.movies,
+        filters: state.filter.sortFilters,
+        currentFilter: state.filter.sortFilter
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: bindActionCreators(actions, dispatch)
+    }
+}
+
+ResultsPanelContainer.propTypes = {
+    movies: PropTypes.array,
+    filters: PropTypes.array,
+    currentFilter: PropTypes.string,
+    actions: PropTypes.object
+}
+
+ResultsPanel.defaultProps = {
+    movies: [],
+    currentFilter: "release_year"
+}
+    
+export default connect(mapStateToProps, mapDispatchToProps)(ResultsPanelContainer);
 
 

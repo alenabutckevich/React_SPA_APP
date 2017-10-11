@@ -1,15 +1,15 @@
 import React from 'react';
 import Header from './header';
-import MovieList from './movie-list';
+import MovieListContainer from './movie-list';
 import Footer from './footer';
 import './layout.scss';
 import '../styles/index.scss';
 
-const Layout = ({headerContent, panel}) => (
+const Layout = ({headerContent, panel, query}) => (
     <div className="layout">
         <Header headerContent={headerContent}></Header>
         <div className="panel">{panel}</div>
-        <MovieList></MovieList>
+        <MovieListContainer query={query}></MovieListContainer>
         <Footer></Footer>
     </div>
 )

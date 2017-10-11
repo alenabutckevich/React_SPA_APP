@@ -1,9 +1,9 @@
 import React from 'react';
 import Layout from '../../layout';
-import Search from './search';
-import ResultsPanel from './results-panel';
+import SearchContainer from './search';
+import ResultsPanelContainer from './results-panel';
 
-const Main = () => 
-    <Layout headerContent={<Search />} panel={<ResultsPanel />}/>
+const Main = ({match}) =>
+    <Layout query={match.params.query} headerContent={<SearchContainer />} panel={<ResultsPanelContainer />} />
 
 export default Main;
