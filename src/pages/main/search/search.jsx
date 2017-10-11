@@ -19,7 +19,6 @@ class Search extends React.Component {
         const { history, setSearchQuery, currentFilter, fetchMovies } = this.props;
         const value = this.refs.searchInput.value;
         const link = value === "" ? "/" : `/search/${value}`;
-        this.refs.searchInput.value = "";
 
         history.push(link);
         setSearchQuery(value);
@@ -31,7 +30,6 @@ class Search extends React.Component {
             const { history, setSearchQuery, currentFilter, fetchMovies } = this.props;
             const value = this.refs.searchInput.value;
             const link = value === "" ? "/" : `/search/${value}`;
-            this.refs.searchInput.value = "";
     
             history.push(link);
             setSearchQuery(value);
@@ -40,11 +38,11 @@ class Search extends React.Component {
     }
 
     render() {
-        const {filters, currentFilter} = this.props;
+        const {filters, currentFilter, searchQuery} = this.props;
         return (
             <div className="search">
                 <h2 className="search__header">find your movie</h2>
-                <input className="search__input" ref="searchInput" onKeyPress={this.handleKeyPress}
+                <input className="search__input" defaultValue={searchQuery} ref="searchInput" onKeyPress={this.handleKeyPress}
                     placeholder="Type the text..." />
                 <div>
                     <SearchFilter filters={filters} currentFilter={currentFilter} changeFilter={this.changeFilter}/>

@@ -9,7 +9,12 @@ const MovieDetailsHeader = ({ movie, history, resetCurrentMovie, searchQuery, cu
         e.preventDefault(); 
         resetCurrentMovie();
 
-        fetchMovies(searchQuery, currentFilter);
+        if (searchQuery) { 
+            fetchMovies(searchQuery, currentFilter); 
+        } else {
+            fetchMovies("", "");
+        }
+
         let url = searchQuery ? `/search/${searchQuery}` : '/';
         history.push(url);
     }

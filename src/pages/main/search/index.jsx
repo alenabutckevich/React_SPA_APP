@@ -6,14 +6,15 @@ import Search from './search';
 import * as movieActions from '../../../actions/movie';
 import * as filterActions from '../../../actions/filter';
 
-const SearchContainer = ({ filters, currentFilter, filterActions, movieActions }) =>
-    <Search filters={filters} currentFilter={currentFilter} changeFilter={filterActions.setSearchFilter} 
+const SearchContainer = ({ filters, currentFilter, searchQuery, filterActions, movieActions }) =>
+    <Search filters={filters} currentFilter={currentFilter} searchQuery={searchQuery} changeFilter={filterActions.setSearchFilter} 
         setSearchQuery={movieActions.setSearchQuery} fetchMovies={movieActions.fetchMovies}/>
 
 function mapStateToProps(state) {
     return {
         filters: state.filter.searchFilters,
-        currentFilter: state.filter.searchFilter
+        currentFilter: state.filter.searchFilter,
+        searchQuery: state.movie.searchQuery
     }
 }
 
@@ -27,12 +28,14 @@ function mapDispatchToProps(dispatch) {
 Search.PropTypes = {
     filters: PropTypes.array,
     currentFilter: PropTypes.string,
+    searchQuery: PropTypes.string,
     movieActions: PropTypes.object,
     filterActions: PropTypes.object
 }
 
 Search.defaultProps = {
-    currentFilter: "title"
+    currentFilter: "title",
+    searchQuery: ""
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchContainer);
