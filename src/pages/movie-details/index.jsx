@@ -21,10 +21,10 @@ class MovieDetailsContainer extends Component {
     }
 
     render() {  
-        const { movie, history, searchQuery, actions } = this.props;
+        const { movie, history, searchQuery, actions, searchFilter } = this.props;
         return (
-            movie && <MovieDetails movie={movie} history={history} searchQuery={searchQuery}
-                resetCurrentMovie={actions.resetCurrentMovie}></MovieDetails>
+            movie && <MovieDetails movie={movie} history={history} searchQuery={searchQuery} currentFilter={searchFilter}
+                resetCurrentMovie={actions.resetCurrentMovie} fetchMovies={actions.fetchMovies}></MovieDetails>
         );
     }
 }
@@ -32,7 +32,8 @@ class MovieDetailsContainer extends Component {
 function mapStateToProps(state) {
     return {
         movie: state.movie.currentMovie,
-        searchQuery: state.movie.searchQuery
+        searchQuery: state.movie.searchQuery,
+        searchFilter: state.filter.searchFilter
     }
 }
 
@@ -46,12 +47,14 @@ function mapDispatchToProps(dispatch) {
 MovieDetailsContainer.propTypes = {
     movie: PropTypes.object,
     searchQuery: PropTypes.string,
+    searchFilter: PropTypes.string,
     actions: PropTypes.object
 }
 
 
 MovieDetailsContainer.defaultProps = {
-    movie: null
+    movie: null,
+    searchFilter: "title"
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieDetailsContainer);

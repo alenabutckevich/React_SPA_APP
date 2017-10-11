@@ -9,14 +9,8 @@ class MovieListContainer extends Component {
 
     componentDidMount() {
         const { movie, actions } = this.props;
-        let { searchFilter, searchQuery } = this.props;
 
-        searchFilter = movie ? "director" : searchFilter;
-        searchQuery = movie ? movie.director : searchQuery;
-
-        if (!searchQuery || searchQuery === "") return;
-
-        actions.fetchMovies(searchQuery, searchFilter);
+        if (movie) actions.fetchMovies(movie.director, "director");
     }
 
     componentWillReceiveProps(newProps) {  
@@ -25,17 +19,9 @@ class MovieListContainer extends Component {
 
         if (movie) {
             if (movie.show_title === newProps.movie.show_title) return;
-        } else {
-            if (searchQuery === newProps.searchQuery) return;
-        }
 
-        searchQuery = newProps.movie ? newProps.movie.director : newProps.searchQuery;
-
-        if (!searchQuery || searchQuery === "") return;
-
-        searchFilter = movie ? "director" : newProps.searchFilter;
-
-        actions.fetchMovies(searchQuery, searchFilter);
+            actions.fetchMovies(newProps.movie.director, "director");
+        } 
     }
 
     render() {

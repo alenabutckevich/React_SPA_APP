@@ -8,7 +8,7 @@ import * as filterActions from '../../../actions/filter';
 
 const SearchContainer = ({ filters, currentFilter, filterActions, movieActions }) =>
     <Search filters={filters} currentFilter={currentFilter} changeFilter={filterActions.setSearchFilter} 
-        setSearchQuery={movieActions.setSearchQuery} />
+        setSearchQuery={movieActions.setSearchQuery} fetchMovies={movieActions.fetchMovies}/>
 
 function mapStateToProps(state) {
     return {
