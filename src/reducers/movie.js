@@ -2,10 +2,6 @@ import * as types from '../constants';
 
 export default function moviestate(state = [], action) { 
     switch (action.type) {
-        case types.FETCH_MOVIES_SUCCESS:
-            return { ...state, movies: action.payload, error: null }
-        case types.FETCH_MOVIES_FAILURE:
-            return { ...state, movies: [], error: action.payload }
         case types.FETCH_MOVIE_BY_TITLE_SUCCESS:
             return { ...state, currentMovie: action.payload, error: null }
         case types.FETCH_MOVIE_BY_TITLE_FAILURE:

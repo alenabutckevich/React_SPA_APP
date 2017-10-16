@@ -1,29 +1,6 @@
 import Axios from 'axios';
 import * as types from '../constants';
 
-export const fetchMovies = (searchQuery, searchFilter) => (
-    (dispatch) => (
-        Axios.get('https://netflixroulette.net/api/api.php?' + searchFilter + '=' + searchQuery.replace(/\s/ig, "%20"))
-            .then(response => {
-                const data = response.data.length ? response.data : [response.data];
-                dispatch(fetchMoviesSuccess(data));
-            })
-            .catch(error => {
-                dispatch(fetchMoviesFailure(error));
-            })
-    )
-);
-
-export const fetchMoviesSuccess = (movies) => ({
-    type: types.FETCH_MOVIES_SUCCESS,
-    payload: movies
-});
-
-export const fetchMoviesFailure = (error) => ({
-    type: types.FETCH_MOVIES_FAILURE,
-    payload: error
-});
-
 export const fetchMovieByTitle = (title) => (
     (dispatch) => (
         Axios.get('https://netflixroulette.net/api/api.php?title=' + title.replace(/\s/ig, "%20"))
