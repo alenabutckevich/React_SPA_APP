@@ -33,7 +33,6 @@ class Search extends React.Component {
     
             history.push(link);
             setSearchQuery(value);
-            fetchMovies(value, currentFilter);
         }
     }
 

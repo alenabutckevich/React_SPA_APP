@@ -11,7 +11,7 @@ const ResultsPanelContainer = ({movies, filters, currentFilter, actions}) =>
 
 function mapStateToProps(state) {
     return {
-        movies: state.movie.movies,
+        movies: state.movieList.movies,
         filters: state.filter.sortFilters,
         currentFilter: state.filter.sortFilter
     }

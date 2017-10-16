@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './header';
-import MovieListContainer from './movie-list';
+import MovieListContainer from './movie-list/movie-list-container';
 import Footer from './footer';
 import './layout.scss';
 import '../styles/index.scss';
