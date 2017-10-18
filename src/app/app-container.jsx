@@ -3,34 +3,23 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
-import App from '.';
-import * as actions from '../actions/genreList';
+import { fetchGenres } from '../actions/genreList';
 
 class AppContainer extends Component {
 
     componentWillMount() {
-        const { actions } = this.props;
+        const { fetchGenres } = this.props;
 
-        actions.fetchGenres();
+        fetchGenres();
     }
 
     render() {
         const { children } = this.props;
  
         return (
-            <App children={children}/>
+            <div>{children}</div>
         );
     }
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        actions: bindActionCreators(actions, dispatch)
-    }
-}
-
-AppContainer.defaultProps = {
-    genres: []
-}
-
-export default withRouter(connect(null, mapDispatchToProps)(AppContainer));
+export default withRouter(connect(null, {fetchGenres})(AppContainer));
