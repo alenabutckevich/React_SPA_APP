@@ -11,9 +11,9 @@ const MovieList = ({movies, genres}) => (
                 {
                     movies.map(({ id, title, poster_path, release_date, genre_ids }) => {
                         let genre = genres.filter(({id}) => id === genre_ids[0])[0];
-                        genre = genre === undefined ? "" : genre.name;
+                        genre = genre || "";
 
-                        return <Movie title={title} image={poster_path} genre={genre} releaseDate={release_date} 
+                        return <Movie title={title} image={poster_path} genre={genre.name} releaseDate={release_date} 
                             key={id} />})
                 }
             </div> :
