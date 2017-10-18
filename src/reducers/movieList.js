@@ -1,7 +1,6 @@
 import { START_FETCHING_MOVIES, FETCH_MOVIES_SUCCESS, FETCH_MOVIES_FAILURE } from '../constants';
 
 export default function movies(state = [], action) { 
-    debugger;
     switch (action.type) {
         case START_FETCHING_MOVIES:
             return { ...state, isFetching: true }

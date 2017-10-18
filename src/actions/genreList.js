@@ -1,11 +1,11 @@
-import Axios from 'axios';
 import { START_FETCHING_GENRES, FETCH_GENRES_SUCCESS, FETCH_GENRES_FAILURE } from '../constants';
+import { getGenries } from '../services';
 
 export const fetchGenres = () => (
     (dispatch) => {
         dispatch(startFetchingGenres());
         return (
-            Axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=075cd6ced4baf51f5a02259700965b5d')
+            getGenries()
                 .then(response => {
                     dispatch(fetchGenresSuccess(response.data.genres));
                 })

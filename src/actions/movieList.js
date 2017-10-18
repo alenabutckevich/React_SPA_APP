@@ -1,10 +1,10 @@
-import Axios from 'axios';
 import { START_FETCHING_MOVIES, FETCH_MOVIES_SUCCESS, FETCH_MOVIES_FAILURE } from '../constants';
+import { getMoviesBySearchQuery } from '../services';
 
 export const fetchMovies = (searchQuery) => (
     (dispatch) => {
         dispatch(startFetchingMovies());
-        return (Axios.get('https://api.themoviedb.org/3/search/movie?api_key=075cd6ced4baf51f5a02259700965b5d&query=' + searchQuery)
+        return (getMoviesBySearchQuery(searchQuery)
             .then(response => {
                 dispatch(fetchMoviesSuccess(response.data.results));
             })
