@@ -21,7 +21,7 @@ ReactDOM.render(
             <AppContainer>
                 <Route exact path="/" component={Main} />
                 <Route path="/search/:query" component={Main} />
-                <Route path="/film/:title" component={MovieDetails} />
+                <Route path="/film/:id" component={MovieDetails} />
             </AppContainer>
         </ConnectedRouter>
     </Provider>,

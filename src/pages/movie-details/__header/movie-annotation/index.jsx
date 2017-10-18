@@ -1,18 +1,23 @@
 import React from 'react';
 import './movie-annotation.scss';
 
-const MovieAnnotation = ({ movie }) => (
-    <div className="movie-annotation">
-        <img className="movie-annotation__image" src={movie.poster} />
-        <h2 className="movie-annotation__title">{movie.show_title}</h2>
-        <button className="movie-annotation__rating" disabled>{movie.rating}</button>
-        <div className="movie-annotation__genre">{movie.category}</div>
-        <div className="movie-annotation__release-date">{movie.release_year}</div>
-        <div className="movie-annotation__duration">{movie.runtime}</div>
-        <h2 className="movie-annotation__description">{movie.summary}</h2>
-        <div className="movie-annotation__director">Director: {movie.director}</div>
-        <div className="movie-annotation__cast">Cast: {movie.show_cast}</div>
-    </div>
-)
+const MovieAnnotation = ({ movie: { poster_path, title, vote_average, genres, release_date, runtime, overview }, cast,
+    director }) => {
+    const genre = genres[0] || "";
+
+    return (
+        <div className="movie-annotation">
+            <img className="movie-annotation__image" src={`https://image.tmdb.org/t/p/w500/${poster_path}`} />
+            <h2 className="movie-annotation__title">{title}</h2>
+            <button className="movie-annotation__rating" disabled>{vote_average}</button>
+            <div className="movie-annotation__genre">{genre.name || ""}</div>
+            <div className="movie-annotation__release-date">{release_date}</div>
+            <div className="movie-annotation__duration">{`${runtime} min`}</div>
+            <h2 className="movie-annotation__description">{overview}</h2>
+            <div className="movie-annotation__director">Director: {director}</div>
+            <div className="movie-annotation__cast">Cast: {cast}</div>
+        </div>
+    )
+}
 
 export default MovieAnnotation;

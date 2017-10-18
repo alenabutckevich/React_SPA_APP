@@ -13,7 +13,7 @@ const MovieList = ({movies, genres}) => (
                         let genre = genres.filter(({id}) => id === genre_ids[0])[0];
                         genre = genre || "";
 
-                        return <Movie title={title} image={poster_path} genre={genre.name} releaseDate={release_date} 
+                        return <Movie id={id} title={title} image={poster_path} genre={genre.name} releaseDate={release_date} 
                             key={id} />})
                 }
             </div> :

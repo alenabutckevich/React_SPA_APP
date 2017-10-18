@@ -1,51 +1,66 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import PropTypes from 'prop-types';
 import MovieDetails from './movie-details';
-import * as actions from '../../actions/movie';
+import { fetchMovieById, fetchMovieCastAndCrew } from '../../actions/movie';
 
 class MovieDetailsContainer extends Component {
 
     componentDidMount() {
-        const { actions, match } = this.props;
-        actions.fetchMovieByTitle(match.params.title);
+        const { fetchMovieById, fetchMovieCastAndCrew, match: {params: {id}} } = this.props;
+
+        fetchMovieById(id);
+        fetchMovieCastAndCrew(id);
     }
 
-    componentWillReceiveProps(newProps) {
-        const { actions, match } = this.props;
-        const title = newProps.match.params.title;
+    componentWillReceiveProps({ match: {params: {id}} }) {
+        const { fetchMovieById, fetchMovieCastAndCrew } = this.props;
+        const prevId = this.props.params.id;
 
-        if (title === match.params.title) return;
-        actions.fetchMovieByTitle(title);
+        if (id === prevId) return;
+
+        fetchMovieById(id);
+        fetchMovieCastAndCrew(id);
     }
 
     render() {  
-        const { movie, history, searchQuery, actions, searchFilter } = this.props;
+        const { movie, history, searchQuery, fetchMovieById, fetchMovieCastAndCrew , searchFilter, cast, crew } = this.props;
+
+        let castNames = "";
+        cast.forEach((actor, index) => {
+            let separator = index < cast.length - 1 ? ", " : "";
+            castNames = castNames.concat(actor.name, separator);
+        });
+
+        let directorNames = "";
+        crew.forEach((man, index) => {
+            if (man.job !== "Director") return;
+            directorNames = directorNames.concat(man.name, ', ');
+        });
+        directorNames = directorNames.slice(0, -2);
+
         return (
             movie && <MovieDetails movie={movie} history={history} searchQuery={searchQuery} currentFilter={searchFilter}
-                resetCurrentMovie={actions.resetCurrentMovie} fetchMovies={actions.fetchMovies}></MovieDetails>
+                resetCurrentMovie={actions.resetCurrentMovie} fetchMovies={actions.fetchMovies} cast={castNames}
+                director={directorNames}></MovieDetails>
         );
     }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps({ movie: {currentMovie, cast, crew, searchQuery}, filter: {searchFilter} }) {
     return {
-        movie: state.movie.currentMovie,
-        searchQuery: state.movie.searchQuery,
-        searchFilter: state.filter.searchFilter
+        movie: currentMovie,
+        cast: cast,
+        crew: crew,
+        searchQuery: searchQuery,
+        searchFilter: searchFilter
     }
 }
-
-function mapDispatchToProps(dispatch) {
-    return {
-        actions: bindActionCreators(actions, dispatch)
-    }
-}
-
 
 MovieDetailsContainer.propTypes = {
     movie: PropTypes.object,
+    crew: PropTypes.string,
+    director: PropTypes.string,
     searchQuery: PropTypes.string,
     searchFilter: PropTypes.string,
     actions: PropTypes.object
@@ -54,7 +69,9 @@ MovieDetailsContainer.propTypes = {
 
 MovieDetailsContainer.defaultProps = {
     movie: null,
+    cast: [],
+    crew: [],
     searchFilter: "title"
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MovieDetailsContainer);
+export default connect(mapStateToProps, {fetchMovieById, fetchMovieCastAndCrew})(MovieDetailsContainer);

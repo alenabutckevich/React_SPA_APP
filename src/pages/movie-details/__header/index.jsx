@@ -3,17 +3,10 @@ import { Link } from 'react-router-dom';
 import MovieAnnotation from './movie-annotation';
 import './movie-details__header.scss';
 
-const MovieDetailsHeader = ({ movie, history, resetCurrentMovie, searchQuery, currentFilter, fetchMovies }) => {
+const MovieDetailsHeader = ({ movie, history, resetCurrentMovie, searchQuery, currentFilter, fetchMovies, cast, director }) => {
 
     const handleClick = (e) => {;
         e.preventDefault(); 
-        resetCurrentMovie();
-
-        if (searchQuery) { 
-            fetchMovies(searchQuery, currentFilter); 
-        } else {
-            fetchMovies("", "");
-        }
 
         let url = searchQuery ? `/search/${searchQuery}` : '/';
         history.push(url);
@@ -22,7 +15,7 @@ const MovieDetailsHeader = ({ movie, history, resetCurrentMovie, searchQuery, cu
     return (
         <div>
             <a className="search-link" onClick={handleClick.bind(this)}>search</a>
-            <MovieAnnotation movie={movie}></MovieAnnotation>
+            <MovieAnnotation movie={movie} cast={cast} director={director}></MovieAnnotation>
         </div>
     )
 }

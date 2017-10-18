@@ -1,25 +1,58 @@
-import Axios from 'axios';
 import * as types from '../constants';
+import { getMovieById, getMovieCastAndCrew } from '../services';
 
-export const fetchMovieByTitle = (title) => (
-    (dispatch) => (
-        Axios.get('https://netflixroulette.net/api/api.php?title=' + title.replace(/\s/ig, "%20"))
+export const fetchMovieById = (id) => (
+    (dispatch) => {
+        dispatch(startFetchingMovieById());
+        return (getMovieById(id)
             .then(response => {
-                dispatch(fetchMovieByTitleSuccess(response.data));
+                dispatch(fetchMovieByIdSuccess(response.data));
+
             })
             .catch(error => {
-                dispatch(fetchMovieByTitleFailure(error));
+                dispatch(fetchMovieByIdFailure(error));
             })
-    )
-);
+        )
+    });
 
-export const fetchMovieByTitleSuccess = (movie) => ({
-    type: types.FETCH_MOVIE_BY_TITLE_SUCCESS,
+export const startFetchingMovieById = () => ({
+    type: types.START_FETCHING_MOVIE_BY_ID
+});
+
+export const fetchMovieByIdSuccess = (movie) => ({
+    type: types.FETCH_MOVIE_BY_ID_SUCCESS,
     payload: movie
 });
 
-export const fetchMovieByTitleFailure = (error) => ({
-    type: types.FETCH_MOVIE_BY_TITLE_FAILURE,
+export const fetchMovieByIdFailure = (error) => ({
+    type: types.FETCH_MOVIE_BY_ID_FAILURE,
+    payload: error
+});
+
+export const fetchMovieCastAndCrew = (id) => (
+    (dispatch) => {
+        dispatch(startFetchingMovieCastAndCrew());
+        return (getMovieCastAndCrew(id)
+            .then(response => {
+                dispatch(fetchMovieCastAndCrewSuccess(response.data));
+            })
+            .catch(error => {
+                dispatch(fetchMovieCastAndCrewFailure(error));
+            })
+        )
+    });
+
+export const startFetchingMovieCastAndCrew = () => ({
+    type: types.START_FETCHING_MOVIE_CAST_AND_CREW
+});
+
+export const fetchMovieCastAndCrewSuccess = (people) => ({
+    type: types.FETCH_MOVIE_CAST_AND_CREW_SUCCESS,
+    payload: people
+});
+
+export const fetchMovieCastAndCrewFailure = (error) => ({
+    type: types.FETCH_MOVIE_CAST_AND_CREW_SUCCESS,
     payload: error
 });
 
