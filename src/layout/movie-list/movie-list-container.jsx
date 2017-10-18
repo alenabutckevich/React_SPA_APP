@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import MovieList from '.';
-import * as actions from '../../actions/movieList';
+import { fetchMovies } from '../../actions/movieList';
 
 class MovieListContainer extends Component {
 
     componentWillMount() {
-        const { actions, query } = this.props;
+        const { query, fetchMovies } = this.props;
 
         if (query) { 
-            actions.fetchMovies(query);
+            fetchMovies(query);
         }
     }
 
@@ -23,17 +23,5 @@ class MovieListContainer extends Component {
     }
 }
 
-function mapStateToProps({ movieList, genreList }) {
-    return {
-        movies: movieList.movies,
-        genres: genreList.genres
-    }
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        actions: bindActionCreators(actions, dispatch)
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(MovieListContainer);
+export default connect(({ movieList: { movies }, genreList: { genres } }) => ({ movies, genres }),
+  {fetchMovies})(MovieListContainer);
