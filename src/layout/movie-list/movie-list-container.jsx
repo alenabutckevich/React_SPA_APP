@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import PropTypes from 'prop-types';
 import MovieList from '.';
 import * as actions from '../../actions/movieList';
 
@@ -35,15 +34,6 @@ function mapDispatchToProps(dispatch) {
     return {
         actions: bindActionCreators(actions, dispatch)
     }
-}
-
-MovieListContainer.propTypes = {
-    movies: PropTypes.array,
-    genres: PropTypes.array
-}
-
-MovieListContainer.defaultProps = {
-    movies: []
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieListContainer);

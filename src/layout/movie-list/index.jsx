@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Movie from './movie';
 import './movie-list.scss';
 
@@ -21,5 +22,14 @@ const MovieList = ({movies, genres}) => (
         }
     </div>
 )
+
+MovieList.propTypes = {
+    movies: PropTypes.array,
+    genres: PropTypes.array
+}
+
+MovieList.defaultProps = {
+    movies: []
+}
 
 export default MovieList;
