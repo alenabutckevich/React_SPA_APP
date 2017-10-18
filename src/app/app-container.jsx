@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
 import App from '.';
 import * as actions from '../actions/genreList';
 
@@ -32,4 +33,4 @@ AppContainer.defaultProps = {
     genres: []
 }
 
-export default connect(null, mapDispatchToProps)(AppContainer);
+export default withRouter(connect(null, mapDispatchToProps)(AppContainer));

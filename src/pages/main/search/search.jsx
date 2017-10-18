@@ -16,22 +16,21 @@ class Search extends React.Component {
     handleClick(e) {
         e.stopPropagation();
 
-        const { history, setSearchQuery, currentFilter, fetchMovies } = this.props;
+        const { history, setSearchQuery, currentFilter, fetchMovies, changeUrl } = this.props;
         const value = this.refs.searchInput.value;
         const link = value === "" ? "/" : `/search/${value}`;
 
-        history.push(link);
+        changeUrl(link);
         setSearchQuery(value);
-        fetchMovies(value, currentFilter);
     }
 
     handleKeyPress(e) {
         if (e.key === 'Enter') {
-            const { history, setSearchQuery, currentFilter, fetchMovies } = this.props;
+            const { history, setSearchQuery, currentFilter, fetchMovies, changeUrl } = this.props;
             const value = this.refs.searchInput.value;
             const link = value === "" ? "/" : `/search/${value}`;
     
-            history.push(link);
+            changeUrl(link);
             setSearchQuery(value);
         }
     }
