@@ -9,13 +9,12 @@ const MovieList = ({movies, genres}) => (
             movies.length > 0 ?
             <div>
                 {
-                    movies.map((movie) => {
-                        console.log(movies);
-                        let genre = genres.filter((genre) => genre.id === movie.genre_ids[0])[0];
-                        genre = genre === undefined ? "" : genre;
+                    movies.map(({ id, title, poster_path, release_date, genre_ids }) => {
+                        let genre = genres.filter(({id}) => id === genre_ids[0])[0];
+                        genre = genre === undefined ? "" : genre.name;
 
-                        return <Movie title={movie.title} image={movie.poster_path} genre={genre.name}
-                            releaseDate={movie.release_date} key={movie.id} />})
+                        return <Movie title={title} image={poster_path} genre={genre} releaseDate={release_date} 
+                            key={id} />})
                 }
             </div> :
             <div className="movie-list_empty">No films found</div>
