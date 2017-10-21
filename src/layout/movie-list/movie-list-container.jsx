@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import MovieList from './movie-list';
 import { fetchMovies } from '../../actions/movieList';
+import { getSortedMovies } from '../../selectors/moviesSelector';
 
 class MovieListContainer extends Component {
 
@@ -23,5 +23,5 @@ class MovieListContainer extends Component {
     }
 }
 
-export default connect(({ movieList: { movies }, genreList: { genres } }) => ({ movies, genres }),
+export default connect(({ movieList: {movies}, sort: {filter}, genreList: { genres } }) => ({ movies: getSortedMovies({ movies, filter }), genres }),
   {fetchMovies})(MovieListContainer);

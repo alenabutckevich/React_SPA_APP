@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 import MovieDetails from './movie-details';
 import { fetchMovieById, fetchMovieCastAndCrew } from '../../actions/movie';
 

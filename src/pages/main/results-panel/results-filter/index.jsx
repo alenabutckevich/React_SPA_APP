@@ -14,7 +14,7 @@ const ResultsFilter = ({ filters, currentFilter, setSortFilter }) => {
                 {filters.map((filter, index) =>
                     <a className={"results-filter__link " + (currentFilter === filter ?
                         "results-filter__link_active" : "")} key={index} onClick={changeFilter.bind(this, filter)}>
-                        {filter === "release_year" ? "release date" : filter}
+                        {filter}
                     </a>
                 )}
             </div>

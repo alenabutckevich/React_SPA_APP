@@ -1,7 +1,6 @@
 import * as types from '../constants';
 
 export default function moviestate(state = [], action) { 
-    debugger;
     switch (action.type) {
         case types.START_FETCHING_MOVIE_BY_ID:
             return { ...state, isFetching: true }

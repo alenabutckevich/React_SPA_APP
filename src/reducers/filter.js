@@ -2,7 +2,8 @@ import * as types from '../constants';
 
 const initialState = {
     searchFilters: ["title", "director"],
-    sortFilters: ["release_year", "rating"]
+    sortFilter: "release date",
+    sortFilters: ["release date", "rating"]
 };
 
 export default function filterstate(state = initialState, action) {
