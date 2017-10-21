@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ResultsFilter from './results-filter';
 import './results-panel.scss';
 
@@ -14,6 +15,17 @@ const ResultsPanel = ({ movies, filters, setSortFilter, currentFilter }) => (
         }
     </div>
 )
+
+ResultsPanel.propTypes = {
+    movies: PropTypes.array,
+    filters: PropTypes.array,
+    filter: PropTypes.string,
+    setSortFilter: PropTypes.func
+}
+
+ResultsPanel.defaultProps = {
+    movies: []
+}
 
 export default ResultsPanel;
 

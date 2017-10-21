@@ -60,7 +60,3 @@ export const resetCurrentMovie = () => ({
     type: types.RESET_CURRENT_MOVIE
 });
 
-export const setSearchQuery = (query) => ({
-    type: 'SET_SEARCH_QUERY',
-    payload: query
-});

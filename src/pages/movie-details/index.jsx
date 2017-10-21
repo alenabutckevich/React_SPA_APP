@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import MovieDetails from './movie-details';
-import { fetchMovieById, fetchMovieCastAndCrew } from '../../actions/movie';
+import { fetchMovieById, fetchMovieCastAndCrew, resetCurrentMovie, fetchMovies } from '../../actions/movie';
 
 class MovieDetailsContainer extends Component {
 
@@ -16,7 +16,7 @@ class MovieDetailsContainer extends Component {
 
     componentWillReceiveProps({ match: {params: {id}} }) {
         const { fetchMovieById, fetchMovieCastAndCrew } = this.props;
-        const prevId = this.props.params.id;
+        const prevId = this.props.match.params.id;
 
         if (id === prevId) return;
 
@@ -42,25 +42,25 @@ class MovieDetailsContainer extends Component {
 
         return (
             movie && <MovieDetails movie={movie} history={history} searchQuery={searchQuery} currentFilter={searchFilter}
-                resetCurrentMovie={actions.resetCurrentMovie} fetchMovies={actions.fetchMovies} cast={castNames}
+                resetCurrentMovie={resetCurrentMovie} fetchMovies={fetchMovies} cast={castNames}
                 director={directorNames}></MovieDetails>
         );
     }
 }
 
-function mapStateToProps({ movie: {currentMovie, cast, crew, searchQuery}, filter: {searchFilter} }) {
+function mapStateToProps({ movie: {currentMovie, cast, crew}, search: {currentFilter, query} }) {
     return {
         movie: currentMovie,
         cast: cast,
         crew: crew,
-        searchQuery: searchQuery,
-        searchFilter: searchFilter
+        searchQuery: query,
+        searchFilter: currentFilter
     }
 }
 
 MovieDetailsContainer.propTypes = {
     movie: PropTypes.object,
-    crew: PropTypes.string,
+    crew: PropTypes.array,
     director: PropTypes.string,
     searchQuery: PropTypes.string,
     searchFilter: PropTypes.string,

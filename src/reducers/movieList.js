@@ -1,12 +1,18 @@
-import { START_FETCHING_MOVIES, FETCH_MOVIES_SUCCESS, FETCH_MOVIES_FAILURE } from '../constants';
+import * as types from '../constants';
 
 export default function movies(state = [], action) { 
     switch (action.type) {
-        case START_FETCHING_MOVIES:
+        case types.START_FETCHING_MOVIES_BY_TITLE:
             return { ...state, isFetching: true }
-        case FETCH_MOVIES_SUCCESS:
+        case types.FETCH_MOVIES_BY_TITLE_SUCCESS:
             return { ...state, movies: action.payload, error: null, isFetching: false }
-        case FETCH_MOVIES_FAILURE:
+        case types.FETCH_MOVIES_BY_TITLE_FAILURE:
+            return { ...state, movies: [], error: action.payload, isFetching: false }
+        case types.START_FETCHING_MOVIES_BY_DIRECTOR:
+            return { ...state, isFetching: true }
+        case types.FETCH_MOVIES_BY_DIRECTOR_SUCCESS:
+            return { ...state, movies: action.payload, error: null, isFetching: false }
+        case types.FETCH_MOVIES_BY_DIRECTOR_FAILURE:
             return { ...state, movies: [], error: action.payload, isFetching: false }
         default:
             return state;

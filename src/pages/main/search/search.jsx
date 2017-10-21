@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import SearchFilter from './search-filter/search-filter';
 import './search.scss';
 
@@ -16,7 +17,7 @@ class Search extends React.Component {
     handleClick(e) {
         e.stopPropagation();
 
-        const { history, setSearchQuery, currentFilter, fetchMovies, changeUrl } = this.props;
+        const { setSearchQuery, changeUrl } = this.props;
         const value = this.refs.searchInput.value;
         const link = value === "" ? "/" : `/search/${value}`;
 
@@ -26,7 +27,7 @@ class Search extends React.Component {
 
     handleKeyPress(e) {
         if (e.key === 'Enter') {
-            const { history, setSearchQuery, currentFilter, fetchMovies, changeUrl } = this.props;
+            const { setSearchQuery, changeUrl } = this.props;
             const value = this.refs.searchInput.value;
             const link = value === "" ? "/" : `/search/${value}`;
     
@@ -49,6 +50,19 @@ class Search extends React.Component {
             </div>
         )
     }
+}
+
+Search.PropTypes = {
+    filters: PropTypes.array,
+    currentFilter: PropTypes.string,
+    searchQuery: PropTypes.string,
+    setSearchQuery: PropTypes.func,
+    setSearchFilter: PropTypes.func
+}
+
+Search.defaultProps = {
+    currentFilter: "title",
+    searchQuery: ""
 }
 
 export default withRouter(Search);

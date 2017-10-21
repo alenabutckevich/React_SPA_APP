@@ -2,7 +2,7 @@ import React from 'react';
 import './results-filter.scss';
 
 const ResultsFilter = ({ filters, currentFilter, setSortFilter }) => {
-    const changeFilter = function (filter, e) {
+    const changeFilter = (filter, e) => {
         e.stopPropagation();
         setSortFilter(filter);
     }

@@ -1,7 +1,8 @@
 import * as types from '../constants';
 
 const initialState = {
-    filters: ["release date", "rating"]
+    filters: ["release date", "rating"],
+    filter: "release date"
 };
 
 export default function filterstate(state = initialState, action) {

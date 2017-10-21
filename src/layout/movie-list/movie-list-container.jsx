@@ -7,21 +7,33 @@ import { getSortedMovies } from '../../selectors/moviesSelector';
 class MovieListContainer extends Component {
 
     componentWillMount() {
-        const { query, fetchMovies } = this.props;
+        const { query, searchFilter, fetchMovies } = this.props;
 
         if (query) { 
-            fetchMovies(query);
+            fetchMovies(query, searchFilter);
         }
     }
 
-    render() {
-        let { movies, genres } = this.props;
+    // need to fetch movies after link was changed
+    componentDidUpdate(prevProps) {
+        const { query, searchFilter, fetchMovies } = this.props;
+        if (query === prevProps.query) return; 
         
+        fetchMovies(query, searchFilter);
+    }   
+
+    render() {
+        let { movies, genres, currentFilter} = this.props;
+
         return (
             <MovieList movies={movies} genres={genres}/>
         );
     }
 }
 
-export default connect(({ movieList: {movies}, sort: {filter}, genreList: { genres } }) => ({ movies: getSortedMovies({ movies, filter }), genres }),
-  {fetchMovies})(MovieListContainer);
+export default connect(({ movieList: { movies }, sort: { filter }, genreList: { genres }, search: { currentFilter } }) =>
+    ({
+        movies: getSortedMovies({ movies, filter }),
+        genres,
+        searchFilter: currentFilter
+    }), { fetchMovies })(MovieListContainer);

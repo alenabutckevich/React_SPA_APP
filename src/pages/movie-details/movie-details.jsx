@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import Layout from '../../layout';
 import MovieDetailsHeader from './__header';
 import './movie-details.scss';
