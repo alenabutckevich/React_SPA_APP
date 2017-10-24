@@ -1,7 +1,8 @@
 import React from 'react';
 import './results-filter.scss';
+import { RELEASE_DATE_FILTER, RATING_FILTER } from './constants';
 
-const ResultsFilter = ({ filters, currentFilter, setSortFilter }) => {
+const ResultsFilter = ({ currentFilter, setSortFilter }) => {
     const changeFilter = (filter, e) => {
         e.stopPropagation();
         setSortFilter(filter);
@@ -11,12 +12,14 @@ const ResultsFilter = ({ filters, currentFilter, setSortFilter }) => {
         <div className="results-filter">
             <span className="results-filter__header">Sort by</span>
             <div style={{ float: "left" }}>
-                {filters.map((filter, index) =>
-                    <a className={"results-filter__link " + (currentFilter === filter ?
-                        "results-filter__link_active" : "")} key={index} onClick={changeFilter.bind(this, filter)}>
-                        {filter}
-                    </a>
-                )}
+                <a className={"results-filter__link " + (currentFilter === RELEASE_DATE_FILTER ?
+                    "results-filter__link_active" : "")} key={1} onClick={changeFilter.bind(this, RELEASE_DATE_FILTER)}>
+                    {RELEASE_DATE_FILTER}
+                </a>
+                <a className={"results-filter__link " + (currentFilter === RATING_FILTER ?
+                    "results-filter__link_active" : "")} key={2} onClick={changeFilter.bind(this, RATING_FILTER)}>
+                    {RATING_FILTER}
+                </a>
             </div>
         </div>
     )

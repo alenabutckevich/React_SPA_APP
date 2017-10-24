@@ -1,11 +1,10 @@
 import * as types from '../constants';
 
 const initialState = {
-    filters: ["release date", "rating"],
     filter: "release date"
 };
 
-export default function filterstate(state = initialState, action) {
+export default function sort(state = initialState, action) {
     switch (action.type) {
         case types.SET_SORT_FILTER:
              return { ...state, filter: action.payload }

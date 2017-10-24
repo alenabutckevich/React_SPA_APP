@@ -1,5 +1,17 @@
 import * as types from '../constants';
+import { fetchMovies } from './movieList';
 import { getMovieById, getMovieCastAndCrew } from '../services';
+
+const getDirectorFromCrew = (crew) => {
+    let director = "";
+    
+    crew.every((man) => {
+        director = man.job === "Director" ? man.name : "";
+        
+        if (director !== "") return;     
+    });
+    return director;
+}
 
 export const fetchMovieById = (id) => (
     (dispatch) => {
@@ -7,7 +19,6 @@ export const fetchMovieById = (id) => (
         return (getMovieById(id)
             .then(response => {
                 dispatch(fetchMovieByIdSuccess(response.data));
-
             })
             .catch(error => {
                 dispatch(fetchMovieByIdFailure(error));
@@ -35,6 +46,9 @@ export const fetchMovieCastAndCrew = (id) => (
         return (getMovieCastAndCrew(id)
             .then(response => {
                 dispatch(fetchMovieCastAndCrewSuccess(response.data));
+
+                const director = getDirectorFromCrew(response.data.crew);
+                dispatch(fetchMovies(director, "director"))
             })
             .catch(error => {
                 dispatch(fetchMovieCastAndCrewFailure(error));
@@ -54,9 +68,5 @@ export const fetchMovieCastAndCrewSuccess = (people) => ({
 export const fetchMovieCastAndCrewFailure = (error) => ({
     type: types.FETCH_MOVIE_CAST_AND_CREW_SUCCESS,
     payload: error
-});
-
-export const resetCurrentMovie = () => ({
-    type: types.RESET_CURRENT_MOVIE
 });
 

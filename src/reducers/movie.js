@@ -14,8 +14,6 @@ export default function moviestate(state = [], action) {
             return { ...state, cast: action.payload.cast, crew: action.payload.crew, error: null, isFetching: false }
         case types.FETCH_MOVIE_CAST_AND_CREW_FAILURE:
             return { ...state, currentMovie: null, error: action.payload, isFetching: false }
-        case types.RESET_CURRENT_MOVIE:
-            return { ...state, currentMovie: null}
         default:
             return state;
     }

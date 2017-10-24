@@ -1,10 +1,6 @@
 import { SET_SEARCH_FILTER, SET_SEARCH_QUERY } from '../constants';
 
-const initialState = {
-    filters: ["title", "director"]
-};
-
-export default function filterstate(state = initialState, action) {
+export default function search(state = [], action) {
     switch (action.type) {
         case SET_SEARCH_FILTER:
              return { ...state, currentFilter: action.payload }

@@ -2,19 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MovieList from './movie-list';
 import { fetchMovies } from '../../actions/movieList';
-import { getSortedMovies } from '../../selectors/moviesSelector';
+import { getSortedMovies } from './selector';
 
 class MovieListContainer extends Component {
 
     componentWillMount() {
-        const { query, searchFilter, fetchMovies } = this.props;
+        const { query , searchFilter, fetchMovies } = this.props;
 
-        if (query) { 
-            fetchMovies(query, searchFilter);
-        }
+        fetchMovies(query, searchFilter);
     }
 
-    // need to fetch movies after link was changed
     componentDidUpdate(prevProps) {
         const { query, searchFilter, fetchMovies } = this.props;
         if (query === prevProps.query) return; 

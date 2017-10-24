@@ -6,6 +6,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "jest": "^21.0.1",
+    "lodash": "^4.17.4",
     "prop-types": "^15.6.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -24,6 +25,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-1": "^6.24.1",
     "css-loader": "^0.28.7",
     "express": "^4.15.4",
     "extract-text-webpack-plugin": "^3.0.0",
