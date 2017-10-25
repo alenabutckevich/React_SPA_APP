@@ -6,17 +6,7 @@ import './search.scss';
 
 class Search extends React.Component {
 
-    constructor(props) {
-        super(props);
-
-        this.changeFilter = props.changeFilter;
-        this.handleClick = this.handleClick.bind(this);
-        this.handleKeyPress = this.handleKeyPress.bind(this);
-    }
-
-    handleClick(e) {
-        e.stopPropagation();
-
+    handleClick() {
         const { setSearchQuery, changeUrl } = this.props;
         const value = this.refs.searchInput.value;
         const link = value === "" ? "/" : `/search/${value}`;
@@ -37,16 +27,16 @@ class Search extends React.Component {
     }
 
     render() {
-        const {currentFilter, query} = this.props;
+        const {currentFilter, query, changeFilter} = this.props;
  
         return (
             <div className="search">
                 <h2 className="search__header">find your movie</h2>
-                <input className="search__input" defaultValue={query} ref="searchInput" onKeyPress={this.handleKeyPress}
+                <input className="search__input" defaultValue={query} ref="searchInput" onKeyPress={e => this.handleKeyPress(e)}
                     placeholder="Type the text..." />
                 <div>
-                    <SearchFilter currentFilter={currentFilter} changeFilter={this.changeFilter}/>
-                    <button onClick={this.handleClick.bind(this)} className="search__button">search</button>
+                    <SearchFilter currentFilter={currentFilter} changeFilter={changeFilter}/>
+                    <button onClick={() => this.handleClick()} className="search__button">search</button>
                 </div>
             </div>
         )

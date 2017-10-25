@@ -6,12 +6,12 @@ const getSortFilter = ({ filter }) => filter;
 const getMovies = ({ movies }) => movies;
 
 const sortMovies = (movies, filter) => {
-    if (filter === _.get(RELEASE_DATE_FILTER, 'name')) {
-        const value = _.get(RELEASE_DATE_FILTER, 'value');
+    if (filter === RELEASE_DATE_FILTER.name) {
+        const value = RELEASE_DATE_FILTER.value;
         return [...movies.sort((obj1, obj2) => new Date(_.get(obj2, value)) - new Date(_.get(obj1, value)))];
     }
-    if (filter === _.get(RATING_FILTER, 'name')) {
-        const value = _.get(RATING_FILTER, 'value');
+    if (filter === RATING_FILTER.name) {
+        const value = RATING_FILTER.value;
         return [...movies.sort((obj1, obj2) => (_.get(obj2, value) - _.get(obj1, value)))];
     }
 }
@@ -22,5 +22,3 @@ export const getSortedMovies = createSelector(
         return movies ? sortMovies(movies, filter) : [];
     }
 )
-
-export default getSortedMovies;

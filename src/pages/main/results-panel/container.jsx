@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import ResultsPanel from './results-panel';
 import { setSortFilter } from '../../../actions/sort';
 
