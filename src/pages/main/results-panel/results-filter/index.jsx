@@ -1,18 +1,23 @@
 import React from 'react';
 import './results-filter.scss';
+import { RELEASE_DATE_FILTER, RATING_FILTER } from './constants';
 
-const ResultsFilter = ({filters, currentFilter}) => (
-    <div className="results-filter">
-        <span className="results-filter__header">Sort by</span>
-        <div style={{ float: "left" }}>
-            {filters.map((filter) =>
-                <a href="" className={"results-filter__link " + (currentFilter === filter.name ?
-                    "results-filter__link_active" : "")} key={filter.id}>
-                    {filter.name}
+const ResultsFilter = ({ currentFilter, setSortFilter }) => {
+    return (
+        <div className="results-filter">
+            <span className="results-filter__header">Sort by</span>
+            <div style={{ float: "left" }}>
+                <a className={"results-filter__link " + (currentFilter === RELEASE_DATE_FILTER ?
+                    "results-filter__link_active" : "")} key={1} onClick={() => setSortFilter(RELEASE_DATE_FILTER)}>
+                    {RELEASE_DATE_FILTER}
                 </a>
-            )}
+                <a className={"results-filter__link " + (currentFilter === RATING_FILTER ?
+                    "results-filter__link_active" : "")} key={2} onClick={() => setSortFilter(RATING_FILTER)}>
+                    {RATING_FILTER}
+                </a>
+            </div>
         </div>
-    </div>
-)
+    )
+}
 
 export default ResultsFilter;

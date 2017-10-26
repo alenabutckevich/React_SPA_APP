@@ -1,7 +1,9 @@
 .movie {
-    float: left;
-    height: 400px;
-    padding-left: 4%;
+    display:inline-block;
+    height: auto;
+    margin-bottom: 10px;
+    margin-left: 4%;
+    vertical-align:top;
     width: 250px;
 
     &__genre {
@@ -21,8 +23,7 @@
         float: left;
         font-size: 15px;
         font-weight: bold;
-        height: 18px;
-        overflow: hidden;
+        height: auto;
         text-transform: uppercase;
         width: 180px;
     }

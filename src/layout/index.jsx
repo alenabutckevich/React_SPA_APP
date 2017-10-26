@@ -5,11 +5,11 @@ import Footer from './footer';
 import './layout.scss';
 import '../styles/index.scss';
 
-const Layout = ({headerContent, panel}) => (
+const Layout = ({headerContent, panel, query}) => (
     <div className="layout">
         <Header headerContent={headerContent}></Header>
         <div className="panel">{panel}</div>
-        <MovieList></MovieList>
+        <MovieList query={query}></MovieList>
         <Footer></Footer>
     </div>
 )

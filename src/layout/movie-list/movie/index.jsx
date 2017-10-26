@@ -2,11 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './movie.scss';
 
-const Movie = ({image, title, releaseDate, genre}) => (
+const Movie = ({id, image, title, releaseDate, genre}) => (
     <div className="movie">
-        <Link to={`/film/${title}`}><img className="movie__image" src={image}/></Link>
+        <Link to={`/film/${id}`}><img className="movie__image" src={`https://image.tmdb.org/t/p/w500/${image}`}/></Link>
         <span className="movie__title">{title}</span>
-        <input className="movie__release-date" value={releaseDate} readOnly/>
+        <input className="movie__release-date" value={releaseDate.split('-')[0]} readOnly/>
+        <div style={{clear: 'both'}}/>
         <span className="movie__genre">{genre}</span>
     </div>
 )
