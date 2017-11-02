@@ -18,10 +18,6 @@ module.exports = {
         rules: [{
             test: /\.jsx?$/,
             loader: 'babel-loader',
-            options: {
-                plugins: ["transform-react-jsx", "transform-object-rest-spread"],
-                presets: ['env', 'stage-1']
-            },
             exclude: /node_modules/
         },
         {
