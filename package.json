@@ -56,8 +56,12 @@
     "transform": {
       ".*": "<rootDir>/node_modules/jest-css-modules"
     },
-    "setupFiles": ["./test/jestsetup.js"],
-    "snapshotSerializers": ["<rootDir>/node_modules/enzyme-to-json/serializer"]
+    "setupFiles": [
+      "./test/jestsetup.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "repository": {
     "type": "git",
