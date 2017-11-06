@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ResultsFilter /> render results filter - rating 1`] = `
+<div
+  className="results-filter"
+>
+  <span
+    className="results-filter__header"
+  >
+    Sort by
+  </span>
+  <div
+    style={
+      Object {
+        "float": "left",
+      }
+    }
+  >
+    <a
+      className="results-filter__link "
+      key="1"
+      onClick={[Function]}
+    >
+      release date
+    </a>
+    <a
+      className="results-filter__link results-filter__link_active"
+      key="2"
+      onClick={[Function]}
+    >
+      rating
+    </a>
+  </div>
+</div>
+`;
+
+exports[`<ResultsFilter /> render results filter - release date 1`] = `
+<div
+  className="results-filter"
+>
+  <span
+    className="results-filter__header"
+  >
+    Sort by
+  </span>
+  <div
+    style={
+      Object {
+        "float": "left",
+      }
+    }
+  >
+    <a
+      className="results-filter__link results-filter__link_active"
+      key="1"
+      onClick={[Function]}
+    >
+      release date
+    </a>
+    <a
+      className="results-filter__link "
+      key="2"
+      onClick={[Function]}
+    >
+      rating
+    </a>
+  </div>
+</div>
+`;
