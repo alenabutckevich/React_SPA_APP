@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render logo correctly 1`] = `
+exports[`<Logo/> render logo 1`] = `
 <span
   className="logo"
 >

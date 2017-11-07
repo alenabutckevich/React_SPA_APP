@@ -1,9 +1,12 @@
 import React from 'react';
 import Logo from './';
 
-it('should render logo correctly', () => {
+
+describe('<Logo/>', () => {
+  it('render logo', () => {
     const wrapper = shallow(
-      <Logo/>
+      <Logo />
     );
     expect(wrapper).toMatchSnapshot();
+  });
 });

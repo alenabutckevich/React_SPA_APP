@@ -22,7 +22,6 @@ const setup = propOverrides => {
     const wrapper = shallow(<MovieAnnotation {...props} />)
 
     return {
-        props,
         wrapper
     }
 }

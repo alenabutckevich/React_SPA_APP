@@ -1,9 +1,12 @@
 import React from 'react';
 import Footer from './';
 
-it('should render footer correctly', () => {
+
+describe('<Footer/>', () => {
+  it('render footer', () => {
     const wrapper = shallow(
-      <Footer/>
+      <Footer />
     );
     expect(wrapper).toMatchSnapshot();
+  });
 });

@@ -10,8 +10,7 @@ const setup = propOverrides => {
     const wrapper = shallow(<MovieDetails {...props}/>);
 
     return {
-        wrapper,
-        props
+        wrapper
     }
 }
 
