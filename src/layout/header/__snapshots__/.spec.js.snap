@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header/> render header 1`] = `
+<div
+  className="header"
+>
+  <div
+    style={
+      Object {
+        "marginLeft": "10%",
+      }
+    }
+  >
+    <Logo />
+  </div>
+</div>
+`;

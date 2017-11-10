@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Search /> render search 1`] = `
+<div
+  className="search"
+>
+  <h2
+    className="search__header"
+  >
+    find your movie
+  </h2>
+  <input
+    className="search__input"
+    defaultValue="query"
+    onKeyPress={[Function]}
+    placeholder="Type the text..."
+  />
+  <div>
+    <SearchFilter
+      changeFilter={[Function]}
+      currentFilter="title"
+    />
+    <button
+      className="search__button"
+      onClick={[Function]}
+    >
+      search
+    </button>
+  </div>
+</div>
+`;

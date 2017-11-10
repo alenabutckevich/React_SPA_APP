@@ -21,7 +21,7 @@ export const fetchMovieById = (id) => (
                 dispatch(fetchMovieByIdSuccess(response.data));
             })
             .catch(error => {
-                dispatch(fetchMovieByIdFailure(error));
+                dispatch(fetchMovieByIdFailure(error.response.data));
             })
         )
     });
@@ -48,10 +48,10 @@ export const fetchMovieCastAndCrew = (id) => (
                 dispatch(fetchMovieCastAndCrewSuccess(response.data));
 
                 const director = getDirectorFromCrew(response.data.crew);
-                dispatch(fetchMovies(director, "director"))
+                dispatch(fetchMovies(director, "director"));
             })
             .catch(error => {
-                dispatch(fetchMovieCastAndCrewFailure(error));
+                dispatch(fetchMovieCastAndCrewFailure(error.response.data));
             })
         )
     });
@@ -66,7 +66,7 @@ export const fetchMovieCastAndCrewSuccess = (people) => ({
 });
 
 export const fetchMovieCastAndCrewFailure = (error) => ({
-    type: types.FETCH_MOVIE_CAST_AND_CREW_SUCCESS,
+    type: types.FETCH_MOVIE_CAST_AND_CREW_FAILURE,
     payload: error
 });
 

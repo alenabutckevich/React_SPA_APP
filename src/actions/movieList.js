@@ -19,7 +19,7 @@ export const fetchMoviesByTitle = (searchQuery) => (
                 dispatch(fetchMoviesByTitleSuccess(response.data.results));
             })
             .catch(error => {
-                dispatch(fetchMoviesByTitleFailure(error));
+                dispatch(fetchMoviesByTitleFailure(error.response.data));
             })
         )
     }

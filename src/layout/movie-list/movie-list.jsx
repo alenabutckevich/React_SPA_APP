@@ -17,7 +17,7 @@ const MovieList = ({movies, genres}) => (
                             key={id} />})
                 }
             </div> :
-            <div className="movie-list_empty">No films found</div>
+            <div>No films found</div>
         }
     </div>
 )

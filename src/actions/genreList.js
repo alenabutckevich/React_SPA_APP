@@ -10,7 +10,7 @@ export const fetchGenres = () => (
                     dispatch(fetchGenresSuccess(response.data.genres));
                 })
                 .catch(error => {
-                    dispatch(fetchGenresFailure(error));
+                    dispatch(fetchGenresFailure(error.response.data));
                 })
         )
     }
