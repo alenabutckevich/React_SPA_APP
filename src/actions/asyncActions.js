@@ -1,28 +1,24 @@
-import * as types from '../constants';
+import { START_FETCHING_GENRES, START_FETCHING_MOVIE_BY_ID, START_FETCHING_MOVIE_CAST_AND_CREW, START_FETCHING_MOVIES } from '../constants';
 
 export const fetchGenres = () => ({
-    type: types.START_FETCHING_GENRES
+    type: START_FETCHING_GENRES
 });
 
 export const fetchMovieById = (id) => ({
-    type: types.START_FETCHING_MOVIE_BY_ID,
+    type: START_FETCHING_MOVIE_BY_ID,
     payload: id
 });
 
 export const fetchMovieCastAndCrew = (id) => ({
-    type: types.START_FETCHING_MOVIE_CAST_AND_CREW,
+    type: START_FETCHING_MOVIE_CAST_AND_CREW,
     payload: id
 });
 
 export const fetchMovies = (query, filter) => ({
-    type: types.START_FETCHING_MOVIES,
+    type: START_FETCHING_MOVIES,
     payload: {
         query: query,
         filter: filter
     }
 }); 
 
-// export const fetchMoviesByDirector = (query) => ({
-//     type: types.START_FETCHING_MOVIES_BY_DIRECTOR,
-//     payload: query
-// });
