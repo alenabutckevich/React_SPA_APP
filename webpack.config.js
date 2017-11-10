@@ -8,7 +8,7 @@ const extractSass = new ExtractTextPlugin({
 
 module.exports = {  
     context: path.resolve(__dirname, 'src'),
-    entry: './index',
+    entry: ["babel-polyfill", './index'],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
