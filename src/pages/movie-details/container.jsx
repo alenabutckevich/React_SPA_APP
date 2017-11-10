@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import MovieDetails from './movie-details';
-import { fetchMovieById, fetchMovieCastAndCrew } from '../../actions/movie';
+import { fetchMovieById, fetchMovieCastAndCrew } from '../../actions/asyncActions';
 
 class MovieDetailsContainer extends Component {
     constructor(props) {
@@ -58,7 +58,7 @@ class MovieDetailsContainer extends Component {
         this.crew = this.parseCrewToString(crew);
 
         return (
-            movie && <MovieDetails movie={movie} history={history} cast={this.cast} director={this.crew} 
+            movie && <MovieDetails movie={movie} history={history} cast={this.cast} director={this.crew.split(',')[0]} 
                 searchQuery={searchQuery}></MovieDetails>
         );
     }

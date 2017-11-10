@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { fetchGenres } from '../actions/genreList';
+import { fetchGenres } from '../actions/asyncActions';
 
 class AppContainer extends Component {
 

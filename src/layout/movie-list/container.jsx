@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MovieList from './movie-list';
-import { fetchMovies } from '../../actions/movieList';
+import { fetchMovies } from '../../actions/asyncActions';
+import PropTypes from 'prop-types';
 import { getSortedMovies } from './selector';
+import { TITLE_FILTER } from './constants';
 
 class MovieListContainer extends Component {
 
@@ -15,7 +17,7 @@ class MovieListContainer extends Component {
     componentDidUpdate(prevProps) {
         const { query, searchFilter, fetchMovies } = this.props;
         if (query === prevProps.query) return; 
-        
+
         fetchMovies(query, searchFilter);
     }   
 
@@ -26,6 +28,14 @@ class MovieListContainer extends Component {
             <MovieList movies={movies} genres={genres}/>
         );
     }
+}
+
+MovieListContainer.propTypes = {
+    searchFilter: PropTypes.string,
+}
+
+MovieListContainer.defaultProps = {
+    searchFilter: TITLE_FILTER.name
 }
 
 export default connect(({ movieList: { movies }, sort: { filter }, genreList: { genres }, search: { currentFilter } }) =>
