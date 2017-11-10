@@ -26,9 +26,9 @@ describe('<MovieList />', () => {
 
     it('render movie list', () => {
         const movies = [{
-            id:1, title:'title1', poster_path:'path1', genre_ids:[1], release_date:'12-12-2012'
+            id:1, title:'title1', poster_path:'path1', genre_ids:[1], release_date:'2012-12-12'
         }, {
-            id:2, title:'title2', poster_path:'path2', genre_ids:[2], release_date:'12-12-2012'
+            id:2, title:'title2', poster_path:'path2', genre_ids:[2], release_date:'2012-12-12'
         }];
         const { wrapper } = setup({movies: movies});
 

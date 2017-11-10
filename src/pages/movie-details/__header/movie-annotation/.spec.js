@@ -11,7 +11,7 @@ const setup = propOverrides => {
             title: 'title',
             vote_average: '9.9',
             genres: genres,
-            release_date: '12-12-2012',
+            release_date: '2012-12-12',
             runtime: runtime,
             overview: 'overview'
         },

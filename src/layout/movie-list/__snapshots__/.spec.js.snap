@@ -20,7 +20,7 @@ exports[`<MovieList /> render movie list 1`] = `
       id={1}
       image="path1"
       key="1"
-      releaseDate="12-12-2012"
+      releaseDate="2012-12-12"
       title="title1"
     />
     <Movie
@@ -28,7 +28,7 @@ exports[`<MovieList /> render movie list 1`] = `
       id={2}
       image="path2"
       key="2"
-      releaseDate="12-12-2012"
+      releaseDate="2012-12-12"
       title="title2"
     />
   </div>
