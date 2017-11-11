@@ -1,4 +1,11 @@
-const renderFullPage = () => (
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import { StaticRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import configureStore from '../src/store';
+import App from '../src/app/container';
+
+const renderFullPage = (html, preloadedState) => (
     `
     <!DOCTYPE html>
         <html>
@@ -9,7 +16,10 @@ const renderFullPage = () => (
             </head>
 
             <body>
-                <div id="root"></div>
+                <div id="root">${html}</div>
+                <script>
+                    window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
+                </script>
                 <script src="/static/bundle.js"></script>
             </body>
         </html>
@@ -17,7 +27,24 @@ const renderFullPage = () => (
 )
 
 const handleRender = (req, res) => {
-    res.send(renderFullPage());
+    const store = configureStore();
+    const context = {};
+    const app = (
+        <Provider store={store}>
+            <StaticRouter location={req.url} context={context}>
+                <App />
+            </StaticRouter>
+        </Provider>
+    );
+
+    const html = renderToString(app);
+
+    if (context.url) {
+        return res.redirect(context.url);
+    }
+
+    const preloadedState = store.getState();
+    res.send(renderFullPage(html, preloadedState));
 }
 
 export default handleRender;
