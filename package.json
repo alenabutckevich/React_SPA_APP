@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.9.0",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-jest": "^21.2.0",
     "babel-loader": "^7.1.2",
@@ -50,7 +51,7 @@
   },
   "scripts": {
     "build": "webpack -d --watch",
-    "start": "node server.js",
+    "start": "babel-node server/index.js --presets env,stage-1",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
