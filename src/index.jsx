@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route } from 'react-router-dom';
-import { ConnectedRouter } from 'react-router-redux';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import AppContainer from './app/app-container';
 import Main from './pages/main';
 import MovieDetails from './pages/movie-details';
-import history from './history';
 import configureStore from './store';
 import rootSaga from './sagas';
 
@@ -15,13 +14,13 @@ store.runSaga(rootSaga);
 
 ReactDOM.render(
     <Provider store={store}>
-        <ConnectedRouter history={history}>
+        <BrowserRouter>
             <AppContainer>
                 <Route exact path="/" component={Main} />
                 <Route path="/search/:query" component={Main} />
                 <Route path="/film/:id" component={MovieDetails} />
             </AppContainer>
-        </ConnectedRouter>
+        </BrowserRouter>
     </Provider>,
     document.getElementById('root')
 );

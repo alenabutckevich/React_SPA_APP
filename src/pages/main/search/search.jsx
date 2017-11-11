@@ -6,21 +6,21 @@ import './search.scss';
 class Search extends React.Component {
 
     handleClick() {
-        const { setSearchQuery, changeUrl } = this.props;
+        const { setSearchQuery, history } = this.props;
         const value = this.searchInput.value;
         const link = value === "" ? "/" : `/search/${value}`;
 
-        changeUrl(link);
+        history.push(link);
         setSearchQuery(value);
     }
 
     handleKeyPress(e) {
         if (e.key === 'Enter') {
-            const { setSearchQuery, changeUrl } = this.props;
+            const { setSearchQuery, history } = this.props;
             const value = this.searchInput.value;
             const link = value === "" ? "/" : `/search/${value}`;
     
-            changeUrl(link);
+            history.push(link);
             setSearchQuery(value);
         }
     }
@@ -47,7 +47,7 @@ Search.PropTypes = {
     query: PropTypes.string,
     setSearchQuery: PropTypes.func,
     changeFilter: PropTypes.func,
-    changeUrl: PropTypes.func
+    history: PropTypes.object
 }
 
 Search.defaultProps = {

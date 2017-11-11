@@ -3,7 +3,7 @@ import Layout from '../../layout';
 import SearchContainer from './search';
 import ResultsPanel from './results-panel';
 
-const Main = ({ match: {params: {query}} }) =>
-    <Layout query={query} headerContent={<SearchContainer />} panel={<ResultsPanel />} />
+const Main = ({ match: {params: {query}}, history }) =>
+    <Layout query={query} headerContent={<SearchContainer history={history}/>} panel={<ResultsPanel />} />
 
 export default Main;
