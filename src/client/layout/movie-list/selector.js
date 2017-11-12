@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { get } from 'lodash';
+import _ from 'lodash';
 import { RELEASE_DATE_FILTER, RATING_FILTER } from './constants';
 
 const getSortFilter = ({ filter }) => filter;

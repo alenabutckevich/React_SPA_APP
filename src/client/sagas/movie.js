@@ -41,20 +41,3 @@ export function* fetchMovieCastAndCrew(action) {
         yield put({ type: types.FETCH_MOVIE_CAST_AND_CREW_FAILURE, payload: error })
     }
 }
-
-// export const fetchMovieCastAndCrew = (id) => (
-//     (dispatch) => {
-//         dispatch(startFetchingMovieCastAndCrew());
-//         return (getMovieCastAndCrew(id)
-//             .then(response => {
-//                 dispatch(fetchMovieCastAndCrewSuccess(response.data));
-
-//                 const director = getDirectorFromCrew(response.data.crew);
-//                 dispatch(fetchMovies(director, "director"));
-//             })
-//             .catch(error => {
-//                 dispatch(fetchMovieCastAndCrewFailure(error.response.data));
-//             })
-//         )
-//     });
-
