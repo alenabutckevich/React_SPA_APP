@@ -53,7 +53,7 @@
   "scripts": {
     "build:client": "webpack --config webpack.config.js",
     "build:server": "SET BABEL_ENV=server&&babel src --out-dir ./dist",
-    "start": "node ./dist/server/index.js",
+    "start": "babel-node ./dist/server/index.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"

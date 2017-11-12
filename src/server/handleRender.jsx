@@ -4,6 +4,7 @@ import { StaticRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from '../client/store';
 import App from '../client/app/container';
+import rootSaga from '../client/sagas';
 
 const renderFullPage = (html, preloadedState) => (
     `
@@ -37,14 +38,19 @@ const handleRender = (req, res) => {
         </Provider>
     );
 
-    const html = renderToString(app);
+    store.runSaga(rootSaga).done.then(() => {
+        const html = renderToString(app);
 
-    if (context.url) {
-        return res.redirect(context.url);
-    }
+        if (context.url) {
+            return res.redirect(context.url);
+        }
 
-    const preloadedState = store.getState();
-    res.send(renderFullPage(html, preloadedState));
+        const preloadedState = store.getState();
+        return res.send(renderFullPage(html, preloadedState));
+    });
+
+    renderToString(app);
+    store.close();
 }
 
 export default handleRender;

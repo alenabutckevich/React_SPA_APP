@@ -24,10 +24,11 @@
                     "css-modules-transform",
                     {
                         "preprocessCss": "./loaders/sass-loader.js",
-                        "generateScopedName": "[name]__[local]___[hash:base64:5]",
+                        "generateScopedName": "[hash:8]",
                         "extensions": [
                             ".scss"
-                        ]
+                        ],
+                        "extractCss": "./dist/combined.css"
                     }
                 ]
             ]
