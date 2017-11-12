@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MovieAnnotation/> render movie annotation 1`] = `
+<div
+  className="movie_annotation"
+>
+  <img
+    className="movie_annotation__image"
+    src="https://image.tmdb.org/t/p/w500/path"
+  />
+  <h2
+    className="movie_annotation__title"
+  >
+    title
+  </h2>
+  <button
+    className="movie_annotation__rating"
+    disabled={true}
+  >
+    9.9
+  </button>
+  <div
+    className="movie_annotation__genre"
+  >
+    genre1
+  </div>
+  <div
+    className="movie_annotation__release_date"
+  >
+    2012
+  </div>
+  <div
+    className="movie_annotation__duration"
+  >
+    100 min
+  </div>
+  <h2
+    className="movie_annotation__description"
+  >
+    overview
+  </h2>
+  <div
+    className="movie_annotation__director"
+  >
+    Director: 
+    director
+  </div>
+  <div
+    className="movie_annotation__cast"
+  >
+    Cast: 
+    cast
+  </div>
+</div>
+`;
+
+exports[`<MovieAnnotation/> render movie annotation 2`] = `
+<div
+  className="movie_annotation"
+>
+  <img
+    className="movie_annotation__image"
+    src="https://image.tmdb.org/t/p/w500/path"
+  />
+  <h2
+    className="movie_annotation__title"
+  >
+    title
+  </h2>
+  <button
+    className="movie_annotation__rating"
+    disabled={true}
+  >
+    9.9
+  </button>
+  <div
+    className="movie_annotation__genre"
+  />
+  <div
+    className="movie_annotation__release_date"
+  >
+    2012
+  </div>
+  <div
+    className="movie_annotation__duration"
+  >
+    0 min
+  </div>
+  <h2
+    className="movie_annotation__description"
+  >
+    overview
+  </h2>
+  <div
+    className="movie_annotation__director"
+  >
+    Director: 
+    director
+  </div>
+  <div
+    className="movie_annotation__cast"
+  >
+    Cast: 
+    cast
+  </div>
+</div>
+`;

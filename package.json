@@ -26,6 +26,7 @@
     "babel-core": "^6.26.0",
     "babel-jest": "^21.2.0",
     "babel-loader": "^7.1.2",
+    "babel-plugin-css-modules-transform": "^1.2.7",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.6.0",
@@ -50,15 +51,17 @@
     "webpack-dev-middleware": "^1.12.0"
   },
   "scripts": {
-    "build": "webpack -d --watch",
-    "start": "babel-node server/index.js --presets env,stage-1",
+    "build:client": "webpack --config webpack.config.js",
+    "build:server": "SET BABEL_ENV=server&&babel src --out-dir ./dist",
+    "start": "node ./dist/server/index.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
   },
   "jest": {
     "transform": {
-      ".*": "<rootDir>/node_modules/jest-css-modules"
+      ".+\\.(css|styl|less|sass|scss)$": "<rootDir>/node_modules/jest-css-modules-transform",
+      "^.+\\.jsx?$": "<rootDir>/node_modules/babel-jest"
     },
     "setupFiles": [
       "./test/jestsetup.js"

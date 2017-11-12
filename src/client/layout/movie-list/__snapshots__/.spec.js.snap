@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MovieList /> render empty movie list 1`] = `
+<div
+  className="movie_list movie_list_empty"
+>
+  <div>
+    No films found
+  </div>
+</div>
+`;
+
+exports[`<MovieList /> render movie list 1`] = `
+<div
+  className="movie_list "
+>
+  <div>
+    <Movie
+      genre="genre1"
+      id={1}
+      image="path1"
+      key="1"
+      releaseDate="2012-12-12"
+      title="title1"
+    />
+    <Movie
+      genre="genre2"
+      id={2}
+      image="path2"
+      key="2"
+      releaseDate="2012-12-12"
+      title="title2"
+    />
+  </div>
+</div>
+`;

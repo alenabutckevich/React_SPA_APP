@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MovieDetailsHeader /> render movie details header 1`] = `
+<div>
+  <a
+    className="search_link"
+    onClick={[Function]}
+  >
+    search
+  </a>
+  <MovieAnnotation />
+</div>
+`;
