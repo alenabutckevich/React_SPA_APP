@@ -4,9 +4,7 @@ import style from './header.scss';
 
 const Header = ({headerContent}) => (
     <div className={style.header}>
-        <div style={{marginLeft: '10%'}}>
-            <Logo></Logo>
-        </div>
+            <Logo />
         {headerContent}
     </div>
 )

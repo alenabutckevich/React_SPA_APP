@@ -2,9 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Movie from './movie';
 import style from './movie-list.scss';
+import classNames from 'classnames';
 
-const MovieList = ({movies, genres}) => (
-    <div className={style.movie_list + ' ' + (!movies.length ? style.movie_list_empty : "")}>
+const MovieList = ({movies, genres}) => {
+    const cssClass = classNames({
+        [`${style.movie_list}`]: true,
+        [`${style.movie_list_empty}`]: !movies.length
+    });
+
+    return (
+    <div className={cssClass}>
         {
             movies.length > 0 ?
             <div>
@@ -20,7 +27,7 @@ const MovieList = ({movies, genres}) => (
             <div>No films found</div>
         }
     </div>
-)
+)}
 
 MovieList.propTypes = {
     movies: PropTypes.array,
