@@ -1,5 +1,7 @@
-import { shallow, render, mount, configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+const sass = require('node-sass');
+
+const { shallow, render, mount, configure } = require('enzyme');
+const Adapter = require('enzyme-adapter-react-16');
 
 global.shallow = shallow;
 global.render = render;

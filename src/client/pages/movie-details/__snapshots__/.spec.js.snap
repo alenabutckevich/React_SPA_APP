@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MovieDetails /> render movie details 1`] = `
+<Layout
+  headerContent={
+    <MovieDetailsHeader
+      cast=""
+      director="director name"
+      history={undefined}
+      movie={undefined}
+      searchQuery={undefined}
+    />
+  }
+  panel={
+    <span
+      className="director_panel"
+    >
+      Films by 
+      director name
+    </span>
+  }
+/>
+`;

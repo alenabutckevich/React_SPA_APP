@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ResultsPanel /> no render results panel 1`] = `
+<div
+  className="results_panel"
+/>
+`;
+
+exports[`<ResultsPanel /> render results panel 1`] = `
+<div
+  className="results_panel"
+>
+  <div>
+    <span
+      className="results_panel__movies_count"
+    >
+      2
+       movies found
+    </span>
+    <ResultsFilter />
+  </div>
+</div>
+`;

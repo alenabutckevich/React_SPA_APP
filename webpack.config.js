@@ -4,11 +4,11 @@ const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 const extractSass = new ExtractTextPlugin({
     filename: "bundle.css",
+    allChunks: true
 });
 
-module.exports = {  
-    context: path.resolve(__dirname, 'src'),
-    entry: './index',
+module.exports = {
+    entry: ["babel-polyfill", './src/client/index'],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
@@ -24,7 +24,11 @@ module.exports = {
             test: /\.scss$/,
             use: extractSass.extract({
                 use: [{
-                    loader: "css-loader"
+                    loader: "css-loader",
+                    query: {
+                        localIdentName: '[hash:8]',
+                        modules: true
+                    }
                 }, {
                     loader: "sass-loader"
                 }],
@@ -33,14 +37,14 @@ module.exports = {
         },
         {
             test: /\.(jpg|png)$/,
-            use: [{ 
-                loader: 'url-loader', 
-                options: { limit: 8192 } 
+            use: [{
+                loader: 'url-loader',
+                options: { limit: 8192 }
             }]
         }]
     },
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx', '.css']
     },
     devtool: "eval",
     plugins: [

@@ -1,0 +1,74 @@
+.movie_annotation {
+    margin-top: 50px;
+    padding-left: 5%;
+    width: 90%;
+
+    &__description {
+        color: #A9A9A9;
+        font-size: medium;
+        height: auto;
+        width: 95%;
+    }
+    
+    &__director {
+        color: #A9A9A9;
+        font-size: small;
+        margin-bottom: 10px;
+    }
+    
+    &__duration {
+        color: #FFFFFF;
+        font-size: small;
+        font-weight: bold;
+    }
+    
+    &__cast {
+        color: #A9A9A9;
+        font-size: small;
+        margin-bottom: 10px;
+        width: 95%;
+    }
+    
+    &__genre {
+        color: #A9A9A9;
+        font-size: medium;
+        margin-bottom: 10px;
+        margin-top: 5px;
+    }
+    
+    &__image {
+        float: left;
+        height: 320px;
+        margin-right: 3%;
+        width: 230px;
+    }
+    &__title {
+        color: #FE2E64;
+        float: left;
+        margin-bottom: 5px !important;
+    }
+    
+    &__rating {
+        background-color: transparent;
+        border: 2px solid #008000;
+        border-radius: 20px;
+        color: #008000;
+        font-size: medium;
+        font-weight: bold;
+        height: 40px; 
+        margin-top: 15px;
+        margin-left: 10px;
+        text-align: center;
+        outline: none;
+        width: 40px; 
+    }
+    
+    &__release_date {
+        color: #FFFFFF;
+        float: left;
+        font-size: small;
+        font-weight: bold;
+        margin-right: 20px;
+    }    
+}
+
